@@ -29,10 +29,12 @@ public class Station : MonoBehaviour
     public void NotifyPassengers() // Bu metodu public yapýyoruz
     {
         Color busColor = FindObjectOfType<BUS>().GetComponent<Renderer>().material.color;
+        Debug.Log("NotifyPassengers called - Bus Color: " + busColor);
         Passenger[] passengers = GetComponentsInChildren<Passenger>();
 
         foreach (Passenger passenger in passengers)
         {
+            Debug.Log("Notifying passenger: " + passenger.name);
             passenger.CheckBusColor(busColor, isBusAtStation); // Otobüs rengini ve etkileþim durumunu yolculara ilet
         }
     }
