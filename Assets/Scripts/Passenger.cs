@@ -7,19 +7,12 @@ public class Passenger : MonoBehaviour
     private Renderer passengerRenderer;
     private Animator[] animators;
     private bool isRunning = false;
-    private Transform busTransform;
+    private Transform vehicleTransform;
 
+    [SerializeField] private PassengerColor color;
+    public PassengerColor Color { get => color; }
     void Start()
     {
-        // Alt öðelerden Renderer bileþenini bul
-        passengerRenderer = GetComponentInChildren<Renderer>();
-
-        if (passengerRenderer == null)
-        {
-            Debug.LogError("Renderer bileþeni bulunamadý: " + gameObject.name);
-            return; // Renderer yoksa devam etme
-        }
-
         // 'Passenger' baþlýðý altýndaki tüm çocuk objelerdeki Animator bileþenlerini al
         animators = GetComponentsInChildren<Animator>();
 
@@ -39,31 +32,25 @@ public class Passenger : MonoBehaviour
         }
     }
 
-    public void CheckBusColor(Color busColor, bool isAtStation)
+    public void StartMove(Transform _vehicleTransform)
     {
-        Debug.Log("Bus rengini kontrol et - Yolcu Rengi: " + passengerRenderer.material.color + ", Otobüs Rengi: " + busColor + ", Durakta mý: " + isAtStation);
-        isRunning = isAtStation && passengerRenderer.material.color == busColor;
-
+        vehicleTransform = _vehicleTransform;
+        isRunning = true;
         foreach (var animator in animators)
         {
             animator.SetBool("isRunning", isRunning);
-        }
-
-        if (isRunning)
-        {
-            busTransform = FindObjectOfType<BUS>().transform;
         }
     }
 
     private void MoveTowardsBus()
     {
-        if (busTransform == null) return;
+        if (vehicleTransform == null) return;
 
         // Karakteri otobüse doðru hareket ettir
-        transform.position = Vector3.MoveTowards(transform.position, busTransform.position, Time.deltaTime * 5f);
+        transform.position = Vector3.MoveTowards(transform.position, vehicleTransform.position, Time.deltaTime * 5f);
 
         // Karakter otobüs pozisyonuna ulaþtýðýnda dur
-        if (Vector3.Distance(transform.position, busTransform.position) < 0.1f)
+        if (Vector3.Distance(transform.position, vehicleTransform.position) < 0.1f)
         {
             isRunning = false;
             foreach (var animator in animators)
@@ -72,7 +59,9 @@ public class Passenger : MonoBehaviour
             }
 
             // Karakteri otobüsün alt öðesi yaparak onunla birlikte hareket etmesini saðla
-            transform.SetParent(busTransform);
+
+            transform.SetParent(vehicleTransform);
+            vehicleTransform.GetComponent<Vehicle>().PickUpPassenger();
         }
     }
 }

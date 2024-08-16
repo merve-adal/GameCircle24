@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-
 public class Vehicle : MonoBehaviour
 {
     GameManager gameManager;
@@ -13,8 +12,11 @@ public class Vehicle : MonoBehaviour
 
     private Way way;
 
+    [SerializeField] private PassengerColor passengerColor;
+    public PassengerColor Color { get => passengerColor; }
+
     List<Road> roads = new List<Road>();
-    private int activeRoadIndex=0;
+    private int activeRoadIndex = 0;
 
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotaionSpeed = 2f;
@@ -23,18 +25,20 @@ public class Vehicle : MonoBehaviour
 
     private bool isMoving = false;
     private bool isMovingInReverse = false;
-    
-    private float elapsedTimeOnRoad=0;
+
+    private float elapsedTimeOnRoad = 0;
 
     private Vector3 firstPositionOnRoad;
     private Vector3 lastPositionOnRoad;
+
+    private int numberOfWaitingPassengers = 0;
     private void Awake()
     {
         GameObject scriptholder = GameObject.FindGameObjectWithTag("ScriptHolder");
         gameManager = scriptholder.GetComponent<GameManager>();
         roadManager = scriptholder.GetComponent<Router>();
 
-        sign=GetComponentInChildren<SignObject>().Sign;
+        sign = GetComponentInChildren<SignObject>().Sign;
     }
     private void Start()
     {
@@ -57,7 +61,7 @@ public class Vehicle : MonoBehaviour
             rotationY += 360;
         }
 
-        if ( 260<rotationY && rotationY < 280)  //270
+        if (260 < rotationY && rotationY < 280)  //270
         {
             way = Way.Left;
         }
@@ -173,19 +177,19 @@ public class Vehicle : MonoBehaviour
                 {
                     elapsedTimeOnRoad = 0;
                     activeRoadIndex++;
-                }               
+                }
             }
         }
-        else if(!roads[activeRoadIndex].IsJunction && !isMovingInReverse)
-        {        
+        else if (!roads[activeRoadIndex].IsJunction && !isMovingInReverse)
+        {
             float fractionOfJourney = elapsedTimeOnRoad * moveSpeed / Vector3.Distance(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition);
-            
+
             transform.position = Vector3.Lerp(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition, fractionOfJourney);
-            
+
             if (fractionOfJourney >= 1)
             {
                 transform.position = roads[activeRoadIndex].LastPosition;
-                if (activeRoadIndex!=roads.Count-1)
+                if (activeRoadIndex != roads.Count - 1)
                 {
                     elapsedTimeOnRoad = 0;
                     activeRoadIndex++;
@@ -194,22 +198,22 @@ public class Vehicle : MonoBehaviour
                 {
                     finish();
                 }
-                   
+
             }
         }
-        else if(!roads[activeRoadIndex].IsJunction && isMovingInReverse)
+        else if (!roads[activeRoadIndex].IsJunction && isMovingInReverse)
         {
             float fractionOfJourney = elapsedTimeOnRoad * moveSpeed / Vector3.Distance(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition);
 
-            transform.position = Vector3.Lerp(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition, 1-fractionOfJourney);
-            
-            if (fractionOfJourney >=1)
+            transform.position = Vector3.Lerp(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition, 1 - fractionOfJourney);
+
+            if (fractionOfJourney >= 1)
             {
                 transform.position = roads[activeRoadIndex].FirstPosition;
-                if (activeRoadIndex >0)
+                if (activeRoadIndex > 0)
                 {
                     elapsedTimeOnRoad = 0;
-                    activeRoadIndex--;              
+                    activeRoadIndex--;
                 }
                 else
                 {
@@ -224,13 +228,13 @@ public class Vehicle : MonoBehaviour
         {
             float fractionOfJourney = elapsedTimeOnRoad * rotaionSpeed;
 
-            transform.position = Vector3.Slerp(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition, 1-fractionOfJourney);
-            transform.rotation = Quaternion.Lerp(roads[activeRoadIndex].FirstQuaternion, roads[activeRoadIndex].LastQuaternion, 1-fractionOfJourney);
+            transform.position = Vector3.Slerp(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition, 1 - fractionOfJourney);
+            transform.rotation = Quaternion.Lerp(roads[activeRoadIndex].FirstQuaternion, roads[activeRoadIndex].LastQuaternion, 1 - fractionOfJourney);
 
-            if (fractionOfJourney >=1)
+            if (fractionOfJourney >= 1)
             {
                 transform.position = roads[activeRoadIndex].FirstPosition;
-                if (activeRoadIndex >0)
+                if (activeRoadIndex > 0)
                 {
                     elapsedTimeOnRoad = 0;
                     activeRoadIndex--;
@@ -246,14 +250,21 @@ public class Vehicle : MonoBehaviour
     }
     public void MoveInReverse()
     {
-        isMovingInReverse=true;
+        isMovingInReverse = true;
     }
+
     private void finish()
     {
         isMoving = false;
         gameManager.DecreaseNumberOfVehicles();
         gameManager.IsPlayable = true;
     }
+    public void StopForPassengers(int _numberOfWaitingPassengers)
+    {
+        isMoving = false;
+        numberOfWaitingPassengers = _numberOfWaitingPassengers;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Vehicle"))
@@ -261,13 +272,14 @@ public class Vehicle : MonoBehaviour
             isMovingInReverse = true;
             elapsedTimeOnRoad = Vector3.Distance(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition) / moveSpeed - elapsedTimeOnRoad;
         }
-        else if (other.gameObject.CompareTag("Station"))
+    }
+    public void PickUpPassenger() {
+        numberOfWaitingPassengers--;
+        if(numberOfWaitingPassengers == 0)
         {
-
+            isMoving = true;
         }
     }
-
-    
 
 }
 
