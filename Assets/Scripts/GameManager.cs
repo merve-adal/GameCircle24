@@ -28,6 +28,5 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("level completed");
         sceneController.LevelCompleted();
-        soundController.PlayWinSound();
     }
 }
