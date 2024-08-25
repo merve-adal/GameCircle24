@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
-    public static SoundController soundController;
+    public static SoundController instance;
 
     [SerializeField] private AudioSource clickSound;
     [SerializeField] private AudioSource tapSound;
@@ -14,25 +14,29 @@ public class SoundController : MonoBehaviour
 
     private void Awake()
     {
-        soundController = this;
+        instance = this;
     }
-    public void playClickSound()
+    public void SetVolume(float volume)
+    {
+        AudioListener.volume= volume;
+    }
+    public void PlayClickSound()
     {
         clickSound.Play();
     }
-    public void playTapSound()
+    public void PlayTapSound()
     {
         tapSound.Play();
     }
-    public void playCrashSound()
+    public void PlayCrashSound()
     {
         crashSound.Play();
     }
-    public void playWinSound()
+    public void PlayWinSound()
     {
         winSound.Play();
     }
-    public void playMusincSound()
+    public void PlayMusicSound()
     {
         musicSound.Play();
     }
