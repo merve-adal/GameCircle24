@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Vehicle : MonoBehaviour
@@ -21,7 +19,7 @@ public class Vehicle : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotaionSpeed = 2f;
 
-    Router roadManager;
+    Router router;
 
     private bool isMoving = false;
     private bool isMovingInReverse = false;
@@ -34,11 +32,10 @@ public class Vehicle : MonoBehaviour
     private int numberOfWaitingPassengers = 0;
     private void Awake()
     {
-        GameObject scriptholder = GameObject.FindGameObjectWithTag("ScriptHolder");
-        gameManager = scriptholder.GetComponent<GameManager>();
-        roadManager = scriptholder.GetComponent<Router>();
+        gameManager = GameObject.FindGameObjectWithTag("ScriptHolder").GetComponent<GameManager>();
+        router = GameObject.FindGameObjectWithTag("ScriptHolder").GetComponent<Router>();
+        sign= GetComponentInChildren<SignObject>().Sign;
 
-        sign = GetComponentInChildren<SignObject>().Sign;
     }
     private void Start()
     {
@@ -65,11 +62,11 @@ public class Vehicle : MonoBehaviour
         {
             way = Way.Left;
         }
-        if (170 < rotationY && rotationY < 190) //180
+        else if (170 < rotationY && rotationY < 190) //180
         {
             way = Way.Down;
         }
-        if (80 < rotationY && rotationY < 100) //90
+        else if (80 < rotationY && rotationY < 100) //90
         {
             way = Way.Right;
         }
@@ -84,46 +81,48 @@ public class Vehicle : MonoBehaviour
     {
         if (sign == Sign.Forward)
         {
-            roads.Add(roadManager.FindFinishLine(transform.position, way));
+            roads.Add(router.FindFinishLine(transform.position, way));
         }
-        if (sign == Sign.Left)
+        else if (sign == Sign.Left)
         {
-            roads.Add(roadManager.FindJunction(transform.position, way, Direction.Left));
+            roads.Add(router.FindJunction(transform.position, way, Direction.Left));
             roads.Insert(0, new Road(transform.position, roads[0].FirstPosition));
             changeWayByTurnLeft();
-            roads.Add(roadManager.FindFinishLine(roads[roads.Count - 1].LastPosition, way));
+            roads.Add(router.FindFinishLine(roads[roads.Count - 1].LastPosition, way));
         }
         else if (sign == Sign.Right)
         {
-            roads.Add(roadManager.FindJunction(transform.position, way, Direction.Right));
+            roads.Add(router.FindJunction(transform.position, way, Direction.Right));
             roads.Insert(0, new Road(transform.position, roads[0].FirstPosition));
-            roads.Add(roadManager.FindFinishLine(roads[roads.Count - 1].LastPosition, way));
+            changeWayByTurnRight();
+            roads.Add(router.FindFinishLine(roads[roads.Count - 1].LastPosition, way));
         }
         else if (sign == Sign.LeftU)
         {
-            roads.Add(roadManager.FindJunction(transform.position, way, Direction.Left));
+            roads.Add(router.FindJunction(transform.position, way, Direction.Left));
             roads.Insert(0, new Road(transform.position, roads[0].FirstPosition));
             changeWayByTurnLeft();
-            roads.Add(roadManager.FindJunction(roads[roads.Count - 1].LastPosition, way, Direction.Left));
+            roads.Add(router.FindJunction(roads[roads.Count - 1].LastPosition, way, Direction.Left));
             roads.Insert(2, new Road(roads[1].LastPosition, roads[2].FirstPosition));
             changeWayByTurnLeft();
-            roads.Add(roadManager.FindFinishLine(roads[roads.Count - 1].LastPosition, way));
+            roads.Add(router.FindFinishLine(roads[roads.Count - 1].LastPosition, way));
         }
         else if (sign == Sign.RightU)
         {
-            roads.Add(roadManager.FindJunction(transform.position, way, Direction.Right));
+            roads.Add(router.FindJunction(transform.position, way, Direction.Right));
             roads.Insert(0, new Road(transform.position, roads[0].FirstPosition));
             changeWayByTurnRight();
-            roads.Add(roadManager.FindJunction(roads[roads.Count - 1].LastPosition, way, Direction.Right));
+            roads.Add(router.FindJunction(roads[roads.Count - 1].LastPosition, way, Direction.Right));
             roads.Insert(2, new Road(roads[1].LastPosition, roads[2].FirstPosition));
             changeWayByTurnRight();
-            roads.Add(roadManager.FindFinishLine(roads[roads.Count - 1].LastPosition, way));
+            roads.Add(router.FindFinishLine(roads[roads.Count - 1].LastPosition, way));
         }
     }
 
     private void changeWayByTurnLeft()
     {
-        if (way == Way.Left) {
+        if (way == Way.Left)
+        {
             way = Way.Down;
         }
         else if (way == Way.Down)
@@ -183,7 +182,6 @@ public class Vehicle : MonoBehaviour
         else if (!roads[activeRoadIndex].IsJunction && !isMovingInReverse)
         {
             float fractionOfJourney = elapsedTimeOnRoad * moveSpeed / Vector3.Distance(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition);
-
             transform.position = Vector3.Lerp(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition, fractionOfJourney);
 
             if (fractionOfJourney >= 1)
@@ -273,13 +271,12 @@ public class Vehicle : MonoBehaviour
             elapsedTimeOnRoad = Vector3.Distance(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition) / moveSpeed - elapsedTimeOnRoad;
         }
     }
-    public void PickUpPassenger() {
+    public void PickUpPassenger()
+    {
         numberOfWaitingPassengers--;
-        if(numberOfWaitingPassengers == 0)
+        if (numberOfWaitingPassengers == 0)
         {
             isMoving = true;
         }
     }
-
 }
-

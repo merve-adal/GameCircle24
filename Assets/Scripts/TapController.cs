@@ -7,6 +7,7 @@ public class TapController : MonoBehaviour
 {
 
     GameManager gameManager;
+    string hitTag = "Vehicle";
 
     private void Awake()
     {
@@ -15,27 +16,26 @@ public class TapController : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (gameManager.IsPlayable && Input.GetMouseButtonDown(0))
         {
-            sendRaycast();
+            sendRay();
         }
     }
 
-    private void sendRaycast()
+    private void sendRay()
     {
-        RaycastHit hit;
+        RaycastHit[] hits;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        hits = Physics.RaycastAll(ray, 50f);
 
-        if (Physics.Raycast(ray, out hit, 50f))
+        foreach (RaycastHit hit in hits)
         {
-            if (hit.transform.CompareTag("Vehicle"))
+            if (hit.transform.CompareTag(hitTag))
             {
                 hit.transform.GetComponent<Vehicle>().StartMove();
             }
-            
         }
-
     }
 }

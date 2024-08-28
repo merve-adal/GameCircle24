@@ -107,7 +107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5530398217254536792}
-  - component: {fileID: 107539746644421276}
+  - component: {fileID: 5929745165022962937}
   m_Layer: 0
   m_Name: Sign Container
   m_TagString: Untagged
@@ -135,7 +135,7 @@ Transform:
   - {fileID: 7686996325738751809}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &107539746644421276
+--- !u!114 &5929745165022962937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,10 +144,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2838056620574184485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4179911dd0997f74394fd5371f012c4c, type: 3}
+  m_Script: {fileID: 11500000, guid: ece20b87675066348bf185f7bc0a8142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sign: 0
 --- !u!1 &3666895008548404548
 GameObject:
   m_ObjectHideFlags: 0

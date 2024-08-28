@@ -28,6 +28,7 @@ public class Station : MonoBehaviour
                 vehicle.StopForPassengers(numberOfPassengers);
                 //Notify passengers
                 List<Passenger> passengers = passengerCluster.PassengersByColor(vehicle.Color);
+                Debug.Log("a");
                 foreach (Passenger passenger in passengers)
                 {
                     Debug.Log("Notifying passenger: " + passenger.name);
