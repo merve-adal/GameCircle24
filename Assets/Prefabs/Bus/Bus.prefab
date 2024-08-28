@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5007227065545025466}
   - component: {fileID: 4932495094024616540}
   - component: {fileID: 5846257312612660055}
+  - component: {fileID: -9072424484769648487}
   m_Layer: 0
   m_Name: Bus
   m_TagString: Untagged
@@ -100,6 +101,18 @@ MonoBehaviour:
   passengerColor: 0
   moveSpeed: 5
   rotaionSpeed: 2
+--- !u!114 &-9072424484769648487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2183919625767709249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4179911dd0997f74394fd5371f012c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5445535994706348179
 GameObject:
   m_ObjectHideFlags: 0
