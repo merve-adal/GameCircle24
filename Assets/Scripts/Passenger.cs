@@ -52,6 +52,7 @@ public class Passenger : MonoBehaviour
             // Karakteri otobüsün alt öðesi yaparak onunla birlikte hareket etmesini saðla
 
             transform.SetParent(vehicleTransform);
+            this.gameObject.SetActive(false);
             vehicleTransform.GetComponent<Vehicle>().PickUpPassenger();
         }
     }

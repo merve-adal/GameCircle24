@@ -7,6 +7,10 @@ public class Station : MonoBehaviour
 
     PassengerCluster passengerCluster = new PassengerCluster();
 
+
+    //There are 2 colliders at the station, Bus stops at the second one.first one is for opposite direction buses.
+    bool isBusAtSecondCollider = false;
+
     private void Awake()
     {
         Passenger[] passengers = GetComponentsInChildren<Passenger>();
@@ -17,25 +21,39 @@ public class Station : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Vehicle")) // Otobüs etiketi kontrol edilir
+        
+        if (other.gameObject.CompareTag("Vehicle"))
         {
-            Debug.Log("Bus arrived at the station.");
-
-            Vehicle vehicle = other.transform.GetComponent<Vehicle>();
-            int numberOfPassengers = passengerCluster.PassengersCountByColor(vehicle.Color);
-            if (numberOfPassengers > 0)
+            Debug.Log("a");
+            if (!isBusAtSecondCollider)
             {
-                vehicle.StopForPassengers(numberOfPassengers);
-                //Notify passengers
-                List<Passenger> passengers = passengerCluster.PassengersByColor(vehicle.Color);
-                Debug.Log("a");
-                foreach (Passenger passenger in passengers)
+                Debug.Log("b");
+                isBusAtSecondCollider = true;
+            }
+            else
+            {
+                Debug.Log("c");
+                isBusAtSecondCollider = false;
+
+                Vehicle vehicle = other.transform.GetComponent<Vehicle>();
+
+                int numberOfPassengers = passengerCluster.PassengersCountByColor(vehicle.Color);
+                if (numberOfPassengers > 0)
                 {
-                    Debug.Log("Notifying passenger: " + passenger.name);
-                    passenger.StartMove(other.transform); 
+                    vehicle.StopForPassengers(numberOfPassengers);
+                    //Notify passengers
+                    List<Passenger> passengers = passengerCluster.PassengersByColor(vehicle.Color);
+                    foreach (Passenger passenger in passengers)
+                    {
+                        Debug.Log("Notifying passenger: " + passenger.name);
+                        passenger.StartMove(other.transform);
+                    }
+                    passengerCluster.RemovePassengersByColor(vehicle.Color);
                 }
-                passengerCluster.RemovePassengersByColor(vehicle.Color);
-            }           
+            }
+
+            
+
         }
     }
 }

@@ -42,7 +42,7 @@ public class Vehicle : MonoBehaviour
         assignFirstWay();
         assignRoads();
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (isMoving)
         {
@@ -171,10 +171,11 @@ public class Vehicle : MonoBehaviour
 
             if (fractionOfJourney >= 1)
             {
+                elapsedTimeOnRoad = 0;
                 transform.position = roads[activeRoadIndex].LastPosition;
+
                 if (activeRoadIndex != roads.Count - 1)
-                {
-                    elapsedTimeOnRoad = 0;
+                {                   
                     activeRoadIndex++;
                 }
             }
@@ -186,10 +187,11 @@ public class Vehicle : MonoBehaviour
 
             if (fractionOfJourney >= 1)
             {
+                elapsedTimeOnRoad = 0;
                 transform.position = roads[activeRoadIndex].LastPosition;
+
                 if (activeRoadIndex != roads.Count - 1)
                 {
-                    elapsedTimeOnRoad = 0;
                     activeRoadIndex++;
                 }
                 else
@@ -207,16 +209,18 @@ public class Vehicle : MonoBehaviour
 
             if (fractionOfJourney >= 1)
             {
+                elapsedTimeOnRoad = 0;
                 transform.position = roads[activeRoadIndex].FirstPosition;
+           
                 if (activeRoadIndex > 0)
-                {
-                    elapsedTimeOnRoad = 0;
+                {             
                     activeRoadIndex--;
                 }
                 else
                 {
                     isMoving = false;
                     isMovingInReverse = false;
+                    gameManager.IsPlayable = true;
                 }
 
             }
@@ -231,10 +235,11 @@ public class Vehicle : MonoBehaviour
 
             if (fractionOfJourney >= 1)
             {
+                elapsedTimeOnRoad = 0;
                 transform.position = roads[activeRoadIndex].FirstPosition;
+
                 if (activeRoadIndex > 0)
-                {
-                    elapsedTimeOnRoad = 0;
+                {            
                     activeRoadIndex--;
                 }
             }
@@ -256,6 +261,7 @@ public class Vehicle : MonoBehaviour
         isMoving = false;
         gameManager.DecreaseNumberOfVehicles();
         gameManager.IsPlayable = true;
+        this.gameObject.SetActive(false);
     }
     public void StopForPassengers(int _numberOfWaitingPassengers)
     {
