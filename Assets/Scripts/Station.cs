@@ -24,15 +24,12 @@ public class Station : MonoBehaviour
         
         if (other.gameObject.CompareTag("Vehicle"))
         {
-            Debug.Log("a");
             if (!isBusAtSecondCollider)
             {
-                Debug.Log("b");
                 isBusAtSecondCollider = true;
             }
             else
             {
-                Debug.Log("c");
                 isBusAtSecondCollider = false;
 
                 Vehicle vehicle = other.transform.GetComponent<Vehicle>();

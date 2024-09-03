@@ -266,7 +266,7 @@ public class Vehicle : MonoBehaviour
     public void StopForPassengers(int _numberOfWaitingPassengers)
     {
         isMoving = false;
-        numberOfWaitingPassengers = _numberOfWaitingPassengers;
+        numberOfWaitingPassengers += _numberOfWaitingPassengers;
     }
 
     private void OnTriggerEnter(Collider other)
