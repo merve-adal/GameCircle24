@@ -32,7 +32,7 @@ public class Passenger : MonoBehaviour
     {
         vehicleTransform = _vehicleTransform;
         isRunning = true;
-        characterAnimator.SetBool("isRunning", true);
+        //characterAnimator.SetBool("isRunning", true);
     }
 
     private void MoveTowardsBus()
@@ -47,7 +47,7 @@ public class Passenger : MonoBehaviour
         {
             isRunning = false;
 
-            characterAnimator.SetBool("isRunning", false);
+            //characterAnimator.SetBool("isRunning", false);
 
             // Karakteri otobüsün alt öðesi yaparak onunla birlikte hareket etmesini saðla
 

@@ -24,16 +24,19 @@ public class Station : MonoBehaviour
         
         if (other.gameObject.CompareTag("Vehicle"))
         {
-            if (!isBusAtSecondCollider)
+            Vehicle vehicle = other.transform.GetComponent<Vehicle>();
+
+            if (vehicle.IsMovingInReverse) { //in case vehicle crashes, then returns back
+                isBusAtSecondCollider = false;
+            }
+            else if (!isBusAtSecondCollider)
             {
                 isBusAtSecondCollider = true;
             }
             else
             {
                 isBusAtSecondCollider = false;
-
-                Vehicle vehicle = other.transform.GetComponent<Vehicle>();
-
+            
                 int numberOfPassengers = passengerCluster.PassengersCountByColor(vehicle.Color);
                 if (numberOfPassengers > 0)
                 {
