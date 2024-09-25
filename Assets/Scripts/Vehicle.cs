@@ -6,8 +6,6 @@ public class Vehicle : MonoBehaviour
 {
     GameManager gameManager;
 
-    private Animator animator;
-
     private Sign sign;
 
     private Way way;
@@ -39,7 +37,6 @@ public class Vehicle : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("ScriptHolder").GetComponent<GameManager>();
         router = GameObject.FindGameObjectWithTag("ScriptHolder").GetComponent<Router>();
         sign= GetComponentInChildren<SignObject>().Sign;
-        animator=this.GetComponent<Animator>();
 
     }
     private void Start()
@@ -226,7 +223,6 @@ public class Vehicle : MonoBehaviour
                     isMoving = false;
                     isMovingInReverse = false;
                     gameManager.IsPlayable = true;
-                    animator.SetBool("moving", false);
                 }
 
             }
@@ -256,7 +252,6 @@ public class Vehicle : MonoBehaviour
     {
         isMoving = true;
         gameManager.IsPlayable = false;
-        animator.SetBool("moving", true);
     }
     public void MoveInReverse()
     {
