@@ -21,7 +21,7 @@ public class Station : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.gameObject.CompareTag("Vehicle"))
         {
             Vehicle vehicle = other.transform.GetComponent<Vehicle>();
