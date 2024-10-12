@@ -20,6 +20,7 @@ public class Vehicle : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
 
     private readonly float quarterCircleLength = 0.785f;
+    private float rotationSpeed;
 
     Router router;
 
@@ -38,6 +39,7 @@ public class Vehicle : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("ScriptHolder").GetComponent<GameManager>();
         router = GameObject.FindGameObjectWithTag("ScriptHolder").GetComponent<Router>();
         sign= GetComponentInChildren<SignObject>().Sign;
+        rotationSpeed=moveSpeed * quarterCircleLength;
 
     }
     private void Start()
@@ -167,7 +169,7 @@ public class Vehicle : MonoBehaviour
 
         if (roads[activeRoadIndex].IsJunction && !isInReverse)
         {
-            float fractionOfJourney = elapsedTimeOnRoad * moveSpeed / quarterCircleLength;
+            float fractionOfJourney = elapsedTimeOnRoad * rotationSpeed;
 
             transform.position = Vector3.Slerp(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition, fractionOfJourney);
             transform.rotation = Quaternion.Lerp(roads[activeRoadIndex].FirstQuaternion, roads[activeRoadIndex].LastQuaternion, fractionOfJourney);
@@ -231,7 +233,7 @@ public class Vehicle : MonoBehaviour
         }
         else if (roads[activeRoadIndex].IsJunction && isInReverse)
         {
-            float fractionOfJourney = elapsedTimeOnRoad * moveSpeed / quarterCircleLength;
+            float fractionOfJourney = elapsedTimeOnRoad * rotationSpeed;
 
             transform.position = Vector3.Slerp(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition, 1 - fractionOfJourney);
             transform.rotation = Quaternion.Lerp(roads[activeRoadIndex].FirstQuaternion, roads[activeRoadIndex].LastQuaternion, 1 - fractionOfJourney);
