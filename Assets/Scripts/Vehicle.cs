@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.Examples;
 using UnityEngine;
 
 public class Vehicle : MonoBehaviour
@@ -23,8 +24,8 @@ public class Vehicle : MonoBehaviour
     Router router;
 
     private bool isMoving = false;
-    private bool isMovingInReverse = false;
-    public bool IsMovingInReverse { get => isMovingInReverse; }
+    private bool isInReverse = false;
+    public bool IsInReverse { get => isInReverse; }
 
     private float elapsedTimeOnRoad = 0;
 
@@ -164,7 +165,7 @@ public class Vehicle : MonoBehaviour
     {
         elapsedTimeOnRoad += Time.deltaTime;
 
-        if (roads[activeRoadIndex].IsJunction && !isMovingInReverse)
+        if (roads[activeRoadIndex].IsJunction && !isInReverse)
         {
             float fractionOfJourney = elapsedTimeOnRoad * moveSpeed / quarterCircleLength;
 
@@ -182,7 +183,7 @@ public class Vehicle : MonoBehaviour
                 }
             }
         }
-        else if (!roads[activeRoadIndex].IsJunction && !isMovingInReverse)
+        else if (!roads[activeRoadIndex].IsJunction && !isInReverse)
         {
             float fractionOfJourney = elapsedTimeOnRoad * moveSpeed / Vector3.Distance(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition);
             transform.position = Vector3.Lerp(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition, fractionOfJourney);
@@ -203,7 +204,7 @@ public class Vehicle : MonoBehaviour
 
             }
         }
-        else if (!roads[activeRoadIndex].IsJunction && isMovingInReverse)
+        else if (!roads[activeRoadIndex].IsJunction && isInReverse)
         {
             float fractionOfJourney = elapsedTimeOnRoad * moveSpeed / Vector3.Distance(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition);
 
@@ -221,14 +222,14 @@ public class Vehicle : MonoBehaviour
                 else
                 {
                     isMoving = false;
-                    isMovingInReverse = false;
+                    isInReverse = false;
                     gameManager.IsPlayable = true;
                 }
 
             }
 
         }
-        else if (roads[activeRoadIndex].IsJunction && isMovingInReverse)
+        else if (roads[activeRoadIndex].IsJunction && isInReverse)
         {
             float fractionOfJourney = elapsedTimeOnRoad * moveSpeed / quarterCircleLength;
 
@@ -255,7 +256,7 @@ public class Vehicle : MonoBehaviour
     }
     public void MoveInReverse()
     {
-        isMovingInReverse = true;
+        isInReverse = true;
     }
 
     private void finish()
@@ -273,10 +274,19 @@ public class Vehicle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Vehicle"))
-        {
-            isMovingInReverse = true;
-            elapsedTimeOnRoad = Vector3.Distance(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition) / moveSpeed - elapsedTimeOnRoad;
+        if (isMoving && other.gameObject.CompareTag("Vehicle")) //crush
+        {         
+            gameManager.DecreaseLives();
+            if (!gameManager.IsPlayable)
+            {
+                isMoving = false;
+            }
+            else
+            {
+                isInReverse = true;
+                elapsedTimeOnRoad = Vector3.Distance(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition) / moveSpeed - elapsedTimeOnRoad;
+            }
+            
         }
     }
     public void PickUpPassenger()

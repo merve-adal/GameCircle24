@@ -22,8 +22,14 @@ public class SceneController
         }
         else
         {
-            SaveLoadGameInfo.SaveLastLevel(currentScene+1);
+            SaveLoadGameInfo.SaveLastLevel(currentScene+1);//biterse basa don ya da 4.ye don
         }
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
+    }
+    public int CurrentLevelNumber() //numbers in the name 
+    {
+        string levelName = SceneManager.GetActiveScene().name;
+        int levelNumber = int.Parse(levelName.Substring(6)); //level_115
+        return levelNumber;
     }
 }

@@ -26,7 +26,7 @@ public class Station : MonoBehaviour
         {
             Vehicle vehicle = other.transform.GetComponent<Vehicle>();
 
-            if (vehicle.IsMovingInReverse) { //in case vehicle crashes, then returns back
+            if (vehicle.IsInReverse) { //in case vehicle crashes, then returns back
                 isBusAtSecondCollider = false;
             }
             else if (!isBusAtSecondCollider)
