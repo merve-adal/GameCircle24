@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: c01f2b3a9b641294894cd5677e582ac8, type: 2}
+    - target: {fileID: 1937928714931500162, guid: 0b0ff27cad428d840ae5d91263c7c6df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2183919625767709249, guid: 0b0ff27cad428d840ae5d91263c7c6df, type: 3}
       propertyPath: m_Name
       value: Blue Bus prefab variant
@@ -34,7 +38,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4492407571619781281, guid: 0b0ff27cad428d840ae5d91263c7c6df, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4492407571619781281, guid: 0b0ff27cad428d840ae5d91263c7c6df, type: 3}
       propertyPath: m_LocalRotation.y
@@ -42,7 +46,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4492407571619781281, guid: 0b0ff27cad428d840ae5d91263c7c6df, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4492407571619781281, guid: 0b0ff27cad428d840ae5d91263c7c6df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -59,6 +63,10 @@ PrefabInstance:
     - target: {fileID: 5846257312612660055, guid: 0b0ff27cad428d840ae5d91263c7c6df, type: 3}
       propertyPath: passengerColor
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8485451310580468101, guid: 0b0ff27cad428d840ae5d91263c7c6df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5017805086121160179, guid: 0b0ff27cad428d840ae5d91263c7c6df, type: 3}

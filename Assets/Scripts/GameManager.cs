@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public int Lives { get => lives;}
     [SerializeField]
     private LevelLivesScriptableObject levelLives;
-    [SerializeField]
+
     UILevelInfo uiLevelInfo;
 
     private void Awake()
