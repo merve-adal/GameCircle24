@@ -173,7 +173,7 @@ public class Vehicle : MonoBehaviour
 
         if (roads[activeRoadIndex].IsJunction && !isInReverse)
         {
-            float fractionOfJourney = elapsedTimeOnRoad / QuarterCircleLength;
+            float fractionOfJourney = elapsedTimeOnRoad *moveSpeed / QuarterCircleLength;
 
             transform.position = Vector3.Slerp(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition, fractionOfJourney);
             transform.rotation = Quaternion.Lerp(roads[activeRoadIndex].FirstQuaternion, roads[activeRoadIndex].LastQuaternion, fractionOfJourney);
@@ -244,7 +244,7 @@ public class Vehicle : MonoBehaviour
         }
         else if (roads[activeRoadIndex].IsJunction && isInReverse)
         {
-            float fractionOfJourney = elapsedTimeOnRoad / QuarterCircleLength;
+            float fractionOfJourney = elapsedTimeOnRoad *moveSpeed / QuarterCircleLength;
 
             transform.position = Vector3.Slerp(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition, 1 - fractionOfJourney);
             transform.rotation = Quaternion.Lerp(roads[activeRoadIndex].FirstQuaternion, roads[activeRoadIndex].LastQuaternion, 1 - fractionOfJourney);
@@ -291,7 +291,7 @@ public class Vehicle : MonoBehaviour
         if (isMoving && other.gameObject.CompareTag("Vehicle")) //crush
         {         
             gameManager.DecreaseLives();
-            if (!gameManager.IsPlayable)
+            if (!gameManager.IsPlayable && gameManager.Lives<=0)
             {
                 isMoving = false;
             }

@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
 
     private int numberOfVehicles = 0;
 
-    SceneController sceneController=new SceneController();
-
     private int lives = 0;
 
     public int Lives { get => lives;}
@@ -18,31 +16,33 @@ public class GameManager : MonoBehaviour
     private LevelLivesScriptableObject levelLives;
 
     UILevelInfo uiLevelInfo;
+    UILevelMenu uILevelMenu;
 
     private void Awake()
     {
         numberOfVehicles = GameObject.FindGameObjectsWithTag("Vehicle").Length;
-        lives =levelLives.TotalLivesOfLevel(sceneController.CurrentLevelNumber());
-        uiLevelInfo= GameObject.FindGameObjectWithTag("UILevelInfo").GetComponent<UILevelInfo>();
+        lives =levelLives.TotalLivesOfLevel(SceneController.CurrentLevelNumber());
+        uiLevelInfo = GameObject.FindGameObjectWithTag("UILevelInfo").GetComponent<UILevelInfo>();
+        uILevelMenu = GameObject.FindGameObjectWithTag("UILevelMenu").GetComponent<UILevelMenu>();
+        uiLevelInfo.LevelName = "Level " + SceneController.CurrentLevelNumber();
     }
     private void Start()
-    {
-        uiLevelInfo.LevelName = "Level " + sceneController.CurrentLevelNumber();
-        uiLevelInfo.LevelLives = lives.ToString();
-        
+    {     
+        uiLevelInfo.LevelLives = lives.ToString();    
     }
     public void DecreaseNumberOfVehicles()
     {
         numberOfVehicles--;
         if (numberOfVehicles == 0)
-        {       
-            //int a = SaveLoadGameInfo.LoadLastLevel();
+        {
+            win();
         }
     }
     private void win()
     {
         Debug.Log("level completed");
-        sceneController.LevelCompleted();
+        SceneController.LevelCompleted();
+        uILevelMenu.OpenWin();
     }
     public void DecreaseLives()
     {
@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game over");
         isPlayable = false;
-        //sceneController.LevelCompleted();
+        uILevelMenu.OpenLose();
     }
+
 }
