@@ -4,40 +4,54 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
-    public static SoundController instance;
+    private static SoundController instance;
 
     [SerializeField] private AudioSource clickSound;
     [SerializeField] private AudioSource tapSound;
     [SerializeField] private AudioSource crashSound;
     [SerializeField] private AudioSource winSound;
+    [SerializeField] private AudioSource loseSound;
+    [SerializeField] private AudioSource moneySound;
     [SerializeField] private AudioSource musicSound;
+    
 
     private void Awake()
     {
         instance = this;
     }
-    public void SetVolume(float volume)
+
+    public static void SetVolume(float volume)
     {
         AudioListener.volume= volume;
     }
+
     public void PlayClickSound()
     {
-        clickSound.Play();
+        instance.clickSound.Play();
     }
-    public void PlayTapSound()
+    public static void PlayTapSound()
     {
-        tapSound.Play();
+        instance.tapSound.Play();
     }
-    public void PlayCrashSound()
+    public static void PlayCrashSound()
     {
-        crashSound.Play();
+        instance.crashSound.Play();
     }
-    public void PlayWinSound()
+    public static void PlayWinSound()
     {
-        winSound.Play();
+        instance.winSound.Play();
     }
-    public void PlayMusicSound()
+    public static void PlayLoseSound()
     {
-        musicSound.Play();
+        instance.loseSound.Play();
+    }
+    public static void PlayMoneySound()
+    {
+        instance.moneySound.Play();
+
+    }
+    public static void PlayMusicSound()
+    {
+        instance.musicSound.Play();
     }
 }

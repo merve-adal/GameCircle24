@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {     
-        uiLevelInfo.LevelLives = lives.ToString();    
+        uiLevelInfo.LevelLives = lives.ToString();
     }
     public void DecreaseNumberOfVehicles()
     {
