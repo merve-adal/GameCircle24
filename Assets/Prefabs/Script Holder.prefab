@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9219731714742872896}
   - component: {fileID: 2063747274695499915}
   - component: {fileID: 2988888612340545759}
-  - component: {fileID: 7556328544176946926}
   - component: {fileID: 7285689493222832578}
   m_Layer: 0
   m_Name: Script Holder
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 404635865068296747}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25700003, y: 0.19, z: 4.21}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -60,23 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a46c9568fa069242ab1f1f46792d58e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7556328544176946926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 404635865068296747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 228d9193d29c0624ea744750f515aab2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickSound: {fileID: 0}
-  tapSound: {fileID: 0}
-  crashSound: {fileID: 0}
-  winSound: {fileID: 0}
-  musicSound: {fileID: 0}
 --- !u!114 &7285689493222832578
 MonoBehaviour:
   m_ObjectHideFlags: 0
