@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     private int numberOfVehicles = 0;
 
-    SceneController sceneController=new SceneController();
+    SceneController sceneController = new SceneController();
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         numberOfVehicles--;
         if (numberOfVehicles == 0)
         {
-            
+
             int a = SaveLoadGameInfo.LoadLastLevel();
         }
     }
