@@ -288,7 +288,7 @@ public class Vehicle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isMoving && other.gameObject.CompareTag("Vehicle")) //crush
+        if (isMoving && other.gameObject.CompareTag("Vehicle")) //crash
         {         
             gameManager.DecreaseLives();
             if (!gameManager.IsPlayable && gameManager.Lives<=0)
@@ -296,9 +296,10 @@ public class Vehicle : MonoBehaviour
                 isMoving = false;
             }
             else
-            {
+            {             
                 isInReverse = true;
                 elapsedTimeOnRoad = Vector3.Distance(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition) / moveSpeed - elapsedTimeOnRoad;
+                SoundController.PlayCrashSound();
             }
             
         }

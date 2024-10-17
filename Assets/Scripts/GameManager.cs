@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("level completed");
         SceneController.LevelCompleted();
         uILevelMenu.OpenWin();
+        SoundController.PlayWinSound();
     }
     public void DecreaseLives()
     {
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game over");
         isPlayable = false;
         uILevelMenu.OpenLose();
+        SoundController.PlayLoseSound();
     }
 
 }
