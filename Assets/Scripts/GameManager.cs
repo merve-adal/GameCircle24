@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 
     private int numberOfVehicles = 0;
 
-<<<<<<< HEAD
     private int lives = 0;
 
     public int Lives { get => lives;}
@@ -18,9 +17,6 @@ public class GameManager : MonoBehaviour
 
     UILevelInfo uiLevelInfo;
     UILevelMenu uILevelMenu;
-=======
-    SceneController sceneController = new SceneController();
->>>>>>> merve
 
     private void Awake()
     {
@@ -39,12 +35,7 @@ public class GameManager : MonoBehaviour
         numberOfVehicles--;
         if (numberOfVehicles == 0)
         {
-<<<<<<< HEAD
             win();
-=======
-
-            int a = SaveLoadGameInfo.LoadLastLevel();
->>>>>>> merve
         }
     }
     private void win()
@@ -54,7 +45,6 @@ public class GameManager : MonoBehaviour
         uILevelMenu.OpenWin();
         SoundController.PlayWinSound();
     }
-<<<<<<< HEAD
     public void DecreaseLives()
     {
         lives--;
@@ -73,6 +63,3 @@ public class GameManager : MonoBehaviour
     }
 
 }
-=======
-}
->>>>>>> merve
