@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     public GameObject pausePanel;
     public GameObject AnaPanel;
     public GameObject CompletePanel;
+    public GameObject LostPanel;
     public GameObject[] buses; // Otobüsleri tutacak dizi
     public Slider levelSlider; // Level slider'ý tutacak deðiþken
 

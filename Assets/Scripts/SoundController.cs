@@ -4,111 +4,40 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
-    private static SoundController instance;
+    public static SoundController instance;
 
     [SerializeField] private AudioSource clickSound;
     [SerializeField] private AudioSource tapSound;
     [SerializeField] private AudioSource crashSound;
     [SerializeField] private AudioSource winSound;
-    [SerializeField] private AudioSource loseSound;
-    [SerializeField] private AudioSource moneySound;
     [SerializeField] private AudioSource musicSound;
-    
-    private bool isVolumeOn=false;
-    private bool isVibrationOn = false;
 
     private void Awake()
     {
         instance = this;
-        CheckVolumeOnOff();
-        CheckVibrationOnOff();
-        AudioListener.volume = 1f;
-        
     }
-
-    public static void SetVolume(float volume)
+    public void SetVolume(float volume)
     {
         AudioListener.volume= volume;
     }
-    public static void SetVibration(bool statue)
+    public void PlayClickSound()
     {
-        instance.isVibrationOn= statue;
+        clickSound.Play();
     }
-
-    public static void PlayClickSound()
+    public void PlayTapSound()
     {
-        //playSound(instance.clickSound);
-        instance.clickSound.Play();
-        vibrate();
+        tapSound.Play();
     }
-    public static void PlayTapSound()
+    public void PlayCrashSound()
     {
-        //playSound(instance.tapSound);
-        instance.tapSound.Play();
-        vibrate();
+        crashSound.Play();
     }
-    public static void PlayCrashSound()
+    public void PlayWinSound()
     {
-        //playSound(instance.crashSound);
-        instance.crashSound.Play();
-        vibrate();
+        winSound.Play();
     }
-    public static void PlayWinSound()
+    public void PlayMusicSound()
     {
-        //playSound(instance.winSound);
-        instance.winSound.Play();
-    }
-    public static void PlayLoseSound()
-    {
-        //playSound(instance.loseSound);
-        instance.loseSound.Play();
-    }
-    public static void PlayMoneySound()
-    {
-        //playSound(instance.moneySound);
-        instance.moneySound.Play();
-    }
-    public static void PlayMusicSound()  //play on awake
-    {
-        //instance.musicSound.Play();  
-    }
-
-    //private void playSound(AudioSource audioSource)
-    //{
-    //    if (instance.isVolumeOn)
-    //    {
-    //        audioSource.Play();
-    //    }
-    //}
-    public static void CheckVolumeOnOff()
-    {
-        if (SaveLoadGameInfo.LoadAuidoOnOff())
-        {
-            instance.isVolumeOn = true;
-            SetVolume(1f);
-        }
-        else
-        {
-            instance.isVolumeOn = false;
-            SetVolume(0f);
-        }
-    }
-    public static void CheckVibrationOnOff()
-    {
-        if (SaveLoadGameInfo.LoadVibrationOnOff())
-        {
-            instance.isVibrationOn = true;
-        }
-        else
-        {
-            instance.isVibrationOn = false;
-        }
-    }
-    private static void vibrate()
-    {
-        if (instance.isVibrationOn)
-        {
-            Handheld.Vibrate();
-        }
+        musicSound.Play();
     }
 }

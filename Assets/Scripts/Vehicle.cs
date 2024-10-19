@@ -18,13 +18,13 @@ public class Vehicle : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 5f;
 
-    private readonly float QuarterCircleLength = 0.785f;
+    private readonly float quarterCircleLength = 0.785f;
 
     Router router;
 
     private bool isMoving = false;
-    private bool isInReverse = false;
-    public bool IsInReverse { get => isInReverse; }
+    private bool isMovingInReverse = false;
+    public bool IsMovingInReverse { get => isMovingInReverse; }
 
     private float elapsedTimeOnRoad = 0;
 
@@ -32,18 +32,11 @@ public class Vehicle : MonoBehaviour
     private Vector3 lastPositionOnRoad;
 
     private int numberOfWaitingPassengers = 0;
-
-    //vehicle leaves the screen
-    Plane[] cameraFrustum;
-    Collider vehicleCollider;
-
     private void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("ScriptHolder").GetComponent<GameManager>();
         router = GameObject.FindGameObjectWithTag("ScriptHolder").GetComponent<Router>();
         sign= GetComponentInChildren<SignObject>().Sign;
-        cameraFrustum = GeometryUtility.CalculateFrustumPlanes(Camera.main);
-        vehicleCollider = GetComponent<Collider>();
 
     }
     private void Start()
@@ -171,9 +164,9 @@ public class Vehicle : MonoBehaviour
     {
         elapsedTimeOnRoad += Time.deltaTime;
 
-        if (roads[activeRoadIndex].IsJunction && !isInReverse)
+        if (roads[activeRoadIndex].IsJunction && !isMovingInReverse)
         {
-            float fractionOfJourney = elapsedTimeOnRoad *moveSpeed / QuarterCircleLength;
+            float fractionOfJourney = elapsedTimeOnRoad * moveSpeed / quarterCircleLength;
 
             transform.position = Vector3.Slerp(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition, fractionOfJourney);
             transform.rotation = Quaternion.Lerp(roads[activeRoadIndex].FirstQuaternion, roads[activeRoadIndex].LastQuaternion, fractionOfJourney);
@@ -189,17 +182,10 @@ public class Vehicle : MonoBehaviour
                 }
             }
         }
-        else if (!roads[activeRoadIndex].IsJunction && !isInReverse)
+        else if (!roads[activeRoadIndex].IsJunction && !isMovingInReverse)
         {
             float fractionOfJourney = elapsedTimeOnRoad * moveSpeed / Vector3.Distance(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition);
             transform.position = Vector3.Lerp(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition, fractionOfJourney);
-
-            //vehicle leaves the screen
-            Bounds bounds = vehicleCollider.bounds;
-            if (!GeometryUtility.TestPlanesAABB(cameraFrustum, bounds))
-            {
-                fractionOfJourney = 1;
-            }
 
             if (fractionOfJourney >= 1)
             {
@@ -217,7 +203,7 @@ public class Vehicle : MonoBehaviour
 
             }
         }
-        else if (!roads[activeRoadIndex].IsJunction && isInReverse)
+        else if (!roads[activeRoadIndex].IsJunction && isMovingInReverse)
         {
             float fractionOfJourney = elapsedTimeOnRoad * moveSpeed / Vector3.Distance(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition);
 
@@ -235,16 +221,16 @@ public class Vehicle : MonoBehaviour
                 else
                 {
                     isMoving = false;
-                    isInReverse = false;
+                    isMovingInReverse = false;
                     gameManager.IsPlayable = true;
                 }
 
             }
 
         }
-        else if (roads[activeRoadIndex].IsJunction && isInReverse)
+        else if (roads[activeRoadIndex].IsJunction && isMovingInReverse)
         {
-            float fractionOfJourney = elapsedTimeOnRoad *moveSpeed / QuarterCircleLength;
+            float fractionOfJourney = elapsedTimeOnRoad * moveSpeed / quarterCircleLength;
 
             transform.position = Vector3.Slerp(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition, 1 - fractionOfJourney);
             transform.rotation = Quaternion.Lerp(roads[activeRoadIndex].FirstQuaternion, roads[activeRoadIndex].LastQuaternion, 1 - fractionOfJourney);
@@ -269,12 +255,11 @@ public class Vehicle : MonoBehaviour
     }
     public void MoveInReverse()
     {
-        isInReverse = true;
+        isMovingInReverse = true;
     }
 
     private void finish()
     {
-        Debug.Log("finish");
         isMoving = false;
         gameManager.DecreaseNumberOfVehicles();
         gameManager.IsPlayable = true;
@@ -288,20 +273,10 @@ public class Vehicle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (isMoving && other.gameObject.CompareTag("Vehicle")) //crash
-        {         
-            gameManager.DecreaseLives();
-            if (!gameManager.IsPlayable && gameManager.Lives<=0)
-            {
-                isMoving = false;
-            }
-            else
-            {             
-                isInReverse = true;
-                elapsedTimeOnRoad = Vector3.Distance(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition) / moveSpeed - elapsedTimeOnRoad;
-                SoundController.PlayCrashSound();
-            }
-            
+        if (other.gameObject.CompareTag("Vehicle"))
+        {
+            isMovingInReverse = true;
+            elapsedTimeOnRoad = Vector3.Distance(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition) / moveSpeed - elapsedTimeOnRoad;
         }
     }
     public void PickUpPassenger()
@@ -312,5 +287,4 @@ public class Vehicle : MonoBehaviour
             isMoving = true;
         }
     }
-
 }

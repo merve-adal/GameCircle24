@@ -3,37 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneController : MonoBehaviour
+public class SceneController
 {
-    public static void LoadMainScreen()
+    public void LoadMainScreen()
     {
         SceneManager.LoadScene(0);
     }
-    public static void LoadNextLevel()
+    public void LoadLastLevel()
     {
-        SceneManager.LoadScene("level_"+(SaveLoadGameInfo.LoadLastLevel()+1));
+        SceneManager.LoadScene(SaveLoadGameInfo.LoadLastLevel());
     }
-    public static void RestartCurrentLevel()
-    {
-        int currentScene = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene("level_"+currentScene);
-    }
-    public static void LevelCompleted()
+    public void LevelCompleted()
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         if (currentScene == SceneManager.sceneCountInBuildSettings - 1)
         {
-            SaveLoadGameInfo.SaveLastLevel(4); //skip tutorial, first 3 scenes are tutorials
+            SaveLoadGameInfo.SaveLastLevel(1);
         }
         else
         {
             SaveLoadGameInfo.SaveLastLevel(currentScene+1);
         }
-    }
-    public static int CurrentLevelNumber() //numbers in the name 
-    {
-        string levelName = SceneManager.GetActiveScene().name;
-        int levelNumber = int.Parse(levelName.Substring(6)); //level_115
-        return levelNumber;
+        SceneManager.LoadScene(0);
     }
 }
