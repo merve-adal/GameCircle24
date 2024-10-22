@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Station : MonoBehaviour
 {
-    public MoneyManager moneyManager; // MoneyManager referansý
+
     PassengerCluster passengerCluster = new PassengerCluster();
 
 
@@ -26,7 +26,7 @@ public class Station : MonoBehaviour
         {
             Vehicle vehicle = other.transform.GetComponent<Vehicle>();
 
-            if (vehicle.IsMovingInReverse) { //in case vehicle crashes, then returns back
+            if (vehicle.IsInReverse) { //in case vehicle crashes, then returns back
                 isBusAtSecondCollider = false;
             }
             else if (!isBusAtSecondCollider)
@@ -48,7 +48,6 @@ public class Station : MonoBehaviour
                         Debug.Log("Notifying passenger: " + passenger.name);
                         passenger.StartMove(other.transform);
                     }
-                    moneyManager.PassengerBoarded(numberOfPassengers);
                     passengerCluster.RemovePassengersByColor(vehicle.Color);
                 }
             }

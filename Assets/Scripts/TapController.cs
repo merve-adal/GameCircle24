@@ -34,6 +34,7 @@ public class TapController : MonoBehaviour
             if (hit.transform.CompareTag(hitTag))
             {
                 hit.transform.GetComponent<Vehicle>().StartMove();
+                SoundController.PlayTapSound();
             }
         }
     }
