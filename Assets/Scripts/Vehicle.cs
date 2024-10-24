@@ -5,6 +5,8 @@ using UnityEngine;
 public class Vehicle : MonoBehaviour
 {
     GameManager gameManager;
+    MoneyManager moneyManager;
+    Ticket ticket;
 
     private Sign sign;
 
@@ -33,6 +35,8 @@ public class Vehicle : MonoBehaviour
 
     private int numberOfWaitingPassengers = 0;
 
+    private bool isTicketAvailable = false;
+
     //vehicle leaves the screen
     Plane[] cameraFrustum;
     Collider vehicleCollider;
@@ -40,10 +44,12 @@ public class Vehicle : MonoBehaviour
     private void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("ScriptHolder").GetComponent<GameManager>();
+        moneyManager = GameObject.FindWithTag("ScriptHolder").GetComponent<MoneyManager>();
         router = GameObject.FindGameObjectWithTag("ScriptHolder").GetComponent<Router>();
         sign= GetComponentInChildren<SignObject>().Sign;
         cameraFrustum = GeometryUtility.CalculateFrustumPlanes(Camera.main);
         vehicleCollider = GetComponent<Collider>();
+        ticket=GameObject.FindGameObjectWithTag("Ticket").GetComponent<Ticket>();
 
     }
     private void Start()
@@ -284,6 +290,7 @@ public class Vehicle : MonoBehaviour
     {
         isMoving = false;
         numberOfWaitingPassengers += _numberOfWaitingPassengers;
+        isTicketAvailable = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -300,13 +307,18 @@ public class Vehicle : MonoBehaviour
                 isInReverse = true;
                 elapsedTimeOnRoad = Vector3.Distance(roads[activeRoadIndex].FirstPosition, roads[activeRoadIndex].LastPosition) / moveSpeed - elapsedTimeOnRoad;
                 SoundController.PlayCrashSound();
-            }
-            
+            }          
         }
     }
     public void PickUpPassenger()
     {
         numberOfWaitingPassengers--;
+        if (isTicketAvailable)
+        {
+            ticket.Activate(transform.position);
+            isTicketAvailable = false;
+        }
+
         if (numberOfWaitingPassengers == 0)
         {
             isMoving = true;

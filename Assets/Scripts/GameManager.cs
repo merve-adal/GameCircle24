@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
 
     private int lives = 0;
 
+    private int money = 0;
+    public int Money { get => money; } 
+
     public int Lives { get => lives;}
     [SerializeField]
     private LevelLivesScriptableObject levelLives;

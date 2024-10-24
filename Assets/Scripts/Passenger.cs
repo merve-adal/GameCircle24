@@ -16,7 +16,7 @@ public class Passenger : MonoBehaviour
 
     private void Awake()
     {
-        characterAnimator = GetComponent<Animator>();
+        characterAnimator = GetComponent<Animator>();      
     }
 
     void Update()
