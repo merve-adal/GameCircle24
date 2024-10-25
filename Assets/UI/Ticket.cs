@@ -18,6 +18,7 @@ public class Ticket : MonoBehaviour
     private void Awake()
     {
         movingObject = transform.GetChild(0);        
+        this.transform.rotation = Camera.main.transform.rotation;
     }
 
     // Update is called once per frame
