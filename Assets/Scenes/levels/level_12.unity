@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 15267846}
   m_Layer: 0
   m_Name: Yellow Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,6 +309,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 863995707}
     m_Modifications:
+    - target: {fileID: 5175986435443630726, guid: 7d9371843638d3947b8471c1e0a8acc4, type: 3}
+      propertyPath: m_TagString
+      value: Passenger
+      objectReference: {fileID: 0}
     - target: {fileID: 8078371140742090534, guid: 7d9371843638d3947b8471c1e0a8acc4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5
@@ -1250,7 +1254,7 @@ GameObject:
   - component: {fileID: 102309238}
   m_Layer: 0
   m_Name: Blue Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1372,7 +1376,7 @@ GameObject:
   - component: {fileID: 144686872}
   m_Layer: 0
   m_Name: Blue Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1990,7 +1994,7 @@ GameObject:
   - component: {fileID: 216090142}
   m_Layer: 0
   m_Name: Yellow Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2213,7 +2217,7 @@ GameObject:
   - component: {fileID: 268754508}
   m_Layer: 0
   m_Name: Blue Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2457,6 +2461,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 863995707}
     m_Modifications:
+    - target: {fileID: 5175986435443630726, guid: 7d9371843638d3947b8471c1e0a8acc4, type: 3}
+      propertyPath: m_TagString
+      value: Passenger
+      objectReference: {fileID: 0}
     - target: {fileID: 8078371140742090534, guid: 7d9371843638d3947b8471c1e0a8acc4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5
@@ -2809,7 +2817,7 @@ GameObject:
   - component: {fileID: 388685791}
   m_Layer: 0
   m_Name: Yellow Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3058,7 +3066,7 @@ GameObject:
   - component: {fileID: 440977414}
   m_Layer: 0
   m_Name: Green Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3252,6 +3260,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3675356867441243670, guid: 950d1998aabc5a249b7fea4a31df6faa, type: 3}
   m_PrefabInstance: {fileID: 466246501}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &466246503 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1375733341033055990, guid: 950d1998aabc5a249b7fea4a31df6faa, type: 3}
+  m_PrefabInstance: {fileID: 466246501}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &482480439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3336,6 +3349,11 @@ PrefabInstance:
 --- !u!4 &482480440 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6690315974244949929, guid: 6a2a26adb2ca7bb4aa1bf19874683d00, type: 3}
+  m_PrefabInstance: {fileID: 482480439}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &482480441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8993175365454311241, guid: 6a2a26adb2ca7bb4aa1bf19874683d00, type: 3}
   m_PrefabInstance: {fileID: 482480439}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &485156465
@@ -3487,6 +3505,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 863995707}
     m_Modifications:
+    - target: {fileID: 5175986435443630726, guid: 7d9371843638d3947b8471c1e0a8acc4, type: 3}
+      propertyPath: m_TagString
+      value: Passenger
+      objectReference: {fileID: 0}
     - target: {fileID: 8078371140742090534, guid: 7d9371843638d3947b8471c1e0a8acc4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -3586,7 +3608,7 @@ GameObject:
   - component: {fileID: 533405616}
   m_Layer: 0
   m_Name: Green Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3774,7 +3796,7 @@ GameObject:
   - component: {fileID: 552858177}
   m_Layer: 0
   m_Name: Red Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4194,7 +4216,7 @@ GameObject:
   - component: {fileID: 645362087}
   m_Layer: 0
   m_Name: Red Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4293,7 +4315,7 @@ GameObject:
   - component: {fileID: 654743656}
   m_Layer: 0
   m_Name: Green Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4497,7 +4519,7 @@ GameObject:
   - component: {fileID: 669273436}
   m_Layer: 0
   m_Name: Red Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4822,7 +4844,7 @@ GameObject:
   - component: {fileID: 774217773}
   m_Layer: 0
   m_Name: Red Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5072,6 +5094,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9130555253294396362, guid: fc5ddbf1aa864c4469410449f193f06e, type: 3}
   m_PrefabInstance: {fileID: 846704335}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &846704337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6818683030450668330, guid: fc5ddbf1aa864c4469410449f193f06e, type: 3}
+  m_PrefabInstance: {fileID: 846704335}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &863995706
 GameObject:
   m_ObjectHideFlags: 0
@@ -5225,7 +5252,7 @@ GameObject:
   - component: {fileID: 870443203}
   m_Layer: 0
   m_Name: Blue Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5476,6 +5503,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8187730959700918793, guid: 121e6e1896a7471468809bf01aa1163b, type: 3}
   m_PrefabInstance: {fileID: 918051312}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &918051314 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5887966522420130537, guid: 121e6e1896a7471468809bf01aa1163b, type: 3}
+  m_PrefabInstance: {fileID: 918051312}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &932609354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5609,7 +5641,7 @@ GameObject:
   - component: {fileID: 935128412}
   m_Layer: 0
   m_Name: Red Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5693,6 +5725,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 0
+--- !u!1 &941064546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 941064548}
+  - component: {fileID: 941064547}
+  m_Layer: 0
+  m_Name: MenuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &941064547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941064546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb4d72e437d19b4db1da8469c0ade4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  homePanel: {fileID: 1326603085}
+  settingsPanel: {fileID: 1326603082}
+  pausePanel: {fileID: 1326603081}
+  AnaPanel: {fileID: 1326603083}
+  CompletePanel: {fileID: 1326603086}
+  LostPanel: {fileID: 1326603080}
+  buses:
+  - {fileID: 482480441}
+  - {fileID: 466246503}
+  - {fileID: 1176647016}
+  - {fileID: 1534079791}
+  - {fileID: 846704337}
+  - {fileID: 1554843501}
+  - {fileID: 918051314}
+  levelSlider: {fileID: 1326603084}
+--- !u!4 &941064548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941064546}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1759.8243, y: 2275.1768, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &957576698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8198890943442378216, guid: ab0259c2fe75007458d837154adf813f, type: 3}
@@ -5920,7 +6011,7 @@ GameObject:
   - component: {fileID: 994990199}
   m_Layer: 0
   m_Name: Blue Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6113,7 +6204,7 @@ GameObject:
   - component: {fileID: 1081745358}
   m_Layer: 0
   m_Name: Red Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6813,6 +6904,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3675356867441243670, guid: 950d1998aabc5a249b7fea4a31df6faa, type: 3}
   m_PrefabInstance: {fileID: 1176647014}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1176647016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1375733341033055990, guid: 950d1998aabc5a249b7fea4a31df6faa, type: 3}
+  m_PrefabInstance: {fileID: 1176647014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1184576689 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1983773555743997192, guid: 06ab4fff608087649ab3f0e176ff6d15, type: 3}
@@ -6826,6 +6922,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 863995707}
     m_Modifications:
+    - target: {fileID: 5175986435443630726, guid: 7d9371843638d3947b8471c1e0a8acc4, type: 3}
+      propertyPath: m_TagString
+      value: Passenger
+      objectReference: {fileID: 0}
     - target: {fileID: 8078371140742090534, guid: 7d9371843638d3947b8471c1e0a8acc4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5
@@ -6995,6 +7095,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 863995707}
     m_Modifications:
+    - target: {fileID: 5175986435443630726, guid: 7d9371843638d3947b8471c1e0a8acc4, type: 3}
+      propertyPath: m_TagString
+      value: Passenger
+      objectReference: {fileID: 0}
     - target: {fileID: 8078371140742090534, guid: 7d9371843638d3947b8471c1e0a8acc4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -7094,7 +7198,7 @@ GameObject:
   - component: {fileID: 1232026495}
   m_Layer: 0
   m_Name: Red Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7275,7 +7379,7 @@ GameObject:
   - component: {fileID: 1264100011}
   m_Layer: 0
   m_Name: Yellow Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7627,7 +7731,7 @@ GameObject:
   - component: {fileID: 1278708400}
   m_Layer: 0
   m_Name: Yellow Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7730,7 +7834,7 @@ GameObject:
   - component: {fileID: 1308764035}
   m_Layer: 0
   m_Name: Red Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7921,9 +8025,25 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2945967611079712607, guid: 03d064213a2e9ea478114b5c6dda0e3e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945967611079712607, guid: 03d064213a2e9ea478114b5c6dda0e3e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200.09741
+      objectReference: {fileID: 0}
     - target: {fileID: 3150507979284793426, guid: 03d064213a2e9ea478114b5c6dda0e3e, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734351708689653556, guid: 03d064213a2e9ea478114b5c6dda0e3e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734351708689653556, guid: 03d064213a2e9ea478114b5c6dda0e3e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8862037591027671567, guid: 03d064213a2e9ea478114b5c6dda0e3e, type: 3}
       propertyPath: m_Pivot.x
@@ -8005,11 +8125,78 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9165907078230586098, guid: 03d064213a2e9ea478114b5c6dda0e3e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03d064213a2e9ea478114b5c6dda0e3e, type: 3}
+--- !u!114 &1326603079 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6775985737140892986, guid: 03d064213a2e9ea478114b5c6dda0e3e, type: 3}
+  m_PrefabInstance: {fileID: 1326603078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1326603080 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1764374771804523742, guid: 03d064213a2e9ea478114b5c6dda0e3e, type: 3}
+  m_PrefabInstance: {fileID: 1326603078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1326603081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7032434459705241162, guid: 03d064213a2e9ea478114b5c6dda0e3e, type: 3}
+  m_PrefabInstance: {fileID: 1326603078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1326603082 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 524058735569258473, guid: 03d064213a2e9ea478114b5c6dda0e3e, type: 3}
+  m_PrefabInstance: {fileID: 1326603078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1326603083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 352451100933289631, guid: 03d064213a2e9ea478114b5c6dda0e3e, type: 3}
+  m_PrefabInstance: {fileID: 1326603078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1326603084 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7513913905522793665, guid: 03d064213a2e9ea478114b5c6dda0e3e, type: 3}
+  m_PrefabInstance: {fileID: 1326603078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1326603085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6648006850777040300, guid: 03d064213a2e9ea478114b5c6dda0e3e, type: 3}
+  m_PrefabInstance: {fileID: 1326603078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1326603086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9165907078230586098, guid: 03d064213a2e9ea478114b5c6dda0e3e, type: 3}
+  m_PrefabInstance: {fileID: 1326603078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1326603087 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 147531157041855008, guid: 03d064213a2e9ea478114b5c6dda0e3e, type: 3}
+  m_PrefabInstance: {fileID: 1326603078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1359391108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8210,7 +8397,7 @@ GameObject:
   - component: {fileID: 1396233673}
   m_Layer: 0
   m_Name: Red Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8444,6 +8631,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8198890943442378216, guid: ab0259c2fe75007458d837154adf813f, type: 3}
   m_PrefabInstance: {fileID: 1432024075}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1450302915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1450302917}
+  - component: {fileID: 1450302916}
+  m_Layer: 0
+  m_Name: MoneyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1450302916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450302915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb6aa74f480d7a408e70fcf7f19d3b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 1326603087}
+  completePanelText: {fileID: 1326603079}
+--- !u!4 &1450302917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450302915}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1759.8243, y: 2275.1768, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1471386854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8578,7 +8811,7 @@ GameObject:
   - component: {fileID: 1527059762}
   m_Layer: 0
   m_Name: Green Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8761,6 +8994,11 @@ PrefabInstance:
 --- !u!4 &1534079790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9130555253294396362, guid: fc5ddbf1aa864c4469410449f193f06e, type: 3}
+  m_PrefabInstance: {fileID: 1534079789}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1534079791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6818683030450668330, guid: fc5ddbf1aa864c4469410449f193f06e, type: 3}
   m_PrefabInstance: {fileID: 1534079789}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1534888898
@@ -9093,6 +9331,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8187730959700918793, guid: 121e6e1896a7471468809bf01aa1163b, type: 3}
   m_PrefabInstance: {fileID: 1554843499}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1554843501 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5887966522420130537, guid: 121e6e1896a7471468809bf01aa1163b, type: 3}
+  m_PrefabInstance: {fileID: 1554843499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1559153397 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8198890943442378216, guid: ab0259c2fe75007458d837154adf813f, type: 3}
@@ -9113,7 +9356,7 @@ GameObject:
   - component: {fileID: 1563118819}
   m_Layer: 0
   m_Name: Blue Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9317,7 +9560,7 @@ GameObject:
   - component: {fileID: 1575685334}
   m_Layer: 0
   m_Name: Yellow Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10672,6 +10915,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 863995707}
     m_Modifications:
+    - target: {fileID: 5175986435443630726, guid: 7d9371843638d3947b8471c1e0a8acc4, type: 3}
+      propertyPath: m_TagString
+      value: Passenger
+      objectReference: {fileID: 0}
     - target: {fileID: 8078371140742090534, guid: 7d9371843638d3947b8471c1e0a8acc4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -10819,7 +11066,7 @@ GameObject:
   - component: {fileID: 1935328594}
   m_Layer: 0
   m_Name: Red Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11555,7 +11802,7 @@ GameObject:
   - component: {fileID: 2108729429}
   m_Layer: 0
   m_Name: Blue Person prefab variant(Clone)
-  m_TagString: Untagged
+  m_TagString: Passenger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11780,3 +12027,5 @@ SceneRoots:
   - {fileID: 868180217}
   - {fileID: 210229775}
   - {fileID: 1326603078}
+  - {fileID: 941064548}
+  - {fileID: 1450302917}
