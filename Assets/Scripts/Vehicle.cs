@@ -37,6 +37,9 @@ public class Vehicle : MonoBehaviour
 
     private bool isTicketAvailable = false;
 
+    private bool isOnFinishLevel = false;
+    public bool IsOnFinishLevel { get => isOnFinishLevel; }
+
     //vehicle leaves the screen
     Plane[] cameraFrustum;
     Collider vehicleCollider;
@@ -280,11 +283,11 @@ public class Vehicle : MonoBehaviour
 
     private void finish()
     {
-        Debug.Log("finish");
         isMoving = false;
         gameManager.DecreaseNumberOfVehicles();
         gameManager.IsPlayable = true;
         this.gameObject.SetActive(false);
+        isOnFinishLevel = true;
     }
     public void StopForPassengers(int _numberOfWaitingPassengers)
     {

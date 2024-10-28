@@ -30,7 +30,7 @@ public class TapController : MonoBehaviour
         hits = Physics.RaycastAll(ray, 50f);
 
         foreach (RaycastHit hit in hits)
-        {
+        {Debug.Log(hit.collider.gameObject.name);
             if (hit.transform.CompareTag(hitTag))
             {
                 hit.transform.GetComponent<Vehicle>().StartMove();
