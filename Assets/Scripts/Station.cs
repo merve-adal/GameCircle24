@@ -45,7 +45,7 @@ public class Station : MonoBehaviour
                     List<Passenger> passengers = passengerCluster.PassengersByColor(vehicle.Color);
                     foreach (Passenger passenger in passengers)
                     {
-                        Debug.Log("Notifying passenger: " + passenger.name);
+                        //Debug.Log("Notifying passenger: " + passenger.name);
                         passenger.StartMove(other.transform);
                     }
                     passengerCluster.RemovePassengersByColor(vehicle.Color);

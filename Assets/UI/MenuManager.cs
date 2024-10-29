@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI; // Slider kullanýmý için gerekli
@@ -10,22 +11,21 @@ public class MenuManager : MonoBehaviour
     public GameObject AnaPanel;
     public GameObject CompletePanel;
     public GameObject LostPanel;
-    public GameObject[] buses; // Otobüsleri tutacak dizi
+    public TMP_Text levelName;
     public Slider levelSlider; // Level slider'ý tutacak deðiþken
+    public Slider livesSlider;
+    public TMP_Text livesText;
 
-    private bool isCompletePanelActive = false;
 
+    private void Awake()
+    {
+        levelName.text = SceneController.CurrentLevelNumber().ToString();
+    }
     private void Start()
     {
         // Slider'ý baþlangýçta sýfýr yap
         levelSlider.value = 0;
     }
-
-    private void Update()
-    {
-        CheckBusesInactive();
-    }
-
     public void OnHomeButtonClicked()
     {
         HideAllPanels();
@@ -57,6 +57,14 @@ public class MenuManager : MonoBehaviour
         HideAllPanels();
         pausePanel.SetActive(true);
     }
+    public void ShowCompletePanel()
+    {
+        CompletePanel.SetActive(true);
+    }
+    public void ShowLostPanel()
+    {
+        LostPanel.SetActive(true);
+    }
 
     public void ContinueGame()
     {
@@ -74,48 +82,16 @@ public class MenuManager : MonoBehaviour
     {
         SceneController.RestartCurrentLevel();
     }
-
-    private void CheckBusesInactive()
+    public void UpdateLevelSlider(int numberOfVehicles, int totalNumberOfVehicles)
     {
-        bool allBusesInactive = true;
-
-        foreach (var bus in buses)
-        {
-            if (bus.activeInHierarchy)
-            {
-                allBusesInactive = false;
-                break;
-            }
-        }
-
-        // Tüm otobüsler inaktif olduðunda CompletePanel'i göster
-        if (allBusesInactive && !isCompletePanelActive)
-        {
-            CompletePanel.SetActive(true);
-            isCompletePanelActive = true;
-        }
-        else
-        {
-            // Tüm otobüslerin aktif olmadýðýný kontrol et ve slider'ý güncelle
-            UpdateLevelSlider();
-        }
-    }
-
-    private void UpdateLevelSlider()
-    {
-        // Aktif olmayan otobüs sayýsýný bul
-        int inactiveBusCount = 0;
-        foreach (var bus in buses)
-        {
-            if (!bus.activeInHierarchy)
-            {
-                inactiveBusCount++;
-            }
-        }
-
-        // Slider'ýn deðerini güncelle
-        float fillAmount = (float)inactiveBusCount / buses.Length; // Dolum oraný
+        float fillAmount = (float)(totalNumberOfVehicles - numberOfVehicles) / (float)totalNumberOfVehicles;
         levelSlider.value = fillAmount; // Slider'ý güncelle
+    }
+    public void UpdateLives(int lives, int totalLives)
+    {
+        float fillAmount = (float)lives / (float)totalLives;
+        livesSlider.value = fillAmount;Debug.Log(fillAmount);
+        livesText.text = lives.ToString()+"/"+ totalLives.ToString();
     }
 
 }

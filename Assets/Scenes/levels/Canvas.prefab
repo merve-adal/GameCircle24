@@ -40111,9 +40111,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 150
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 88
+  m_Value: 0.33
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -60939,9 +60939,10 @@ GameObject:
   - component: {fileID: 8680171463749545108}
   - component: {fileID: 238246114207587985}
   - component: {fileID: 6270538051277605338}
+  - component: {fileID: 5127426248232406881}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: UILevelMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61029,6 +61030,28 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5127426248232406881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4830587295340211282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb4d72e437d19b4db1da8469c0ade4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  homePanel: {fileID: 8138860360766433087}
+  settingsPanel: {fileID: 7722994934975040396}
+  pausePanel: {fileID: 7866959807591573136}
+  AnaPanel: {fileID: 7886017336425108756}
+  CompletePanel: {fileID: 6935587745687955222}
+  LostPanel: {fileID: 8009819104213058466}
+  levelName: {fileID: 6745106573090658086}
+  levelSlider: {fileID: 878732362326866190}
+  livesSlider: {fileID: 259750720635664518}
+  livesText: {fileID: 4328277014677152486}
 --- !u!1 &4856378458783210597
 GameObject:
   m_ObjectHideFlags: 0
@@ -68698,8 +68721,8 @@ RectTransform:
   - {fileID: 1264657373833356672}
   m_Father: {fileID: 2673280918956345200}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 182.4491, y: 200.09741}
   m_Pivot: {x: 0, y: 1}
@@ -83406,7 +83429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3640987521691980221
 RectTransform:
   m_ObjectHideFlags: 0
@@ -94732,7 +94755,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 21.699951}
-  m_SizeDelta: {x: 182.4491, y: 200.09741}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9071841599582958757
 MonoBehaviour:

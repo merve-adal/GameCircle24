@@ -31,11 +31,20 @@ public class Tutorial : MonoBehaviour
         
         if (vehicle.IsOnFinishLevel)
         {
-            vehiclesInOrder.RemoveAt(0);
-            if(vehiclesInOrder.Count >= 0)
+            if (vehiclesInOrder.Count > 1)
             {
+                vehiclesInOrder.RemoveAt(0);
                 playTutorial();
             }
+            else
+            {
+                this.gameObject.SetActive(false);
+            }
+            //vehiclesInOrder.RemoveAt(0);
+            //if(vehiclesInOrder.Count >= 0)
+            //{
+            //    playTutorial();
+            //}
         }
         else if(tutorialAnimator.GetBool("TutorialAnimationFinished"))
         {

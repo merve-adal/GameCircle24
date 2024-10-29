@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour
     public bool IsPlayable { get => isPlayable; set => isPlayable = value; }
 
     private int numberOfVehicles = 0;
+    private int totalNumberOfVehicles = 0;
 
     private int lives = 0;
+    private int totalLives = 0;
 
     private int money = 0;
     public int Money { get => money; } 
@@ -18,24 +20,30 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private LevelLivesScriptableObject levelLives;
 
-    UILevelInfo uiLevelInfo;
-    UILevelMenu uILevelMenu;
+    //UILevelInfo uiLevelInfo;
+    //UILevelMenu uILevelMenu;
+    MenuManager menuManager;
 
     private void Awake()
     {
         numberOfVehicles = GameObject.FindGameObjectsWithTag("Vehicle").Length;
         lives =levelLives.TotalLivesOfLevel(SceneController.CurrentLevelNumber());
-        uiLevelInfo = GameObject.FindGameObjectWithTag("UILevelInfo").GetComponent<UILevelInfo>();
-        uILevelMenu = GameObject.FindGameObjectWithTag("UILevelMenu").GetComponent<UILevelMenu>();
-        uiLevelInfo.LevelName = "Level " + SceneController.CurrentLevelNumber();
+        //uiLevelInfo = GameObject.FindGameObjectWithTag("UILevelInfo").GetComponent<UILevelInfo>();
+        //uILevelMenu = GameObject.FindGameObjectWithTag("UILevelMenu").GetComponent<UILevelMenu>();
+        menuManager = GameObject.FindGameObjectWithTag("UILevelMenu").GetComponent<MenuManager>();
+        //uiLevelInfo.LevelName = "Level " + SceneController.CurrentLevelNumber();
     }
     private void Start()
-    {     
-        uiLevelInfo.LevelLives = lives.ToString();
+    {
+        //uiLevelInfo.LevelLives = lives.ToString();
+        totalLives = lives;
+        menuManager.UpdateLives(lives,totalLives);
+        totalNumberOfVehicles = numberOfVehicles;
     }
     public void DecreaseNumberOfVehicles()
     {
         numberOfVehicles--;
+        menuManager.UpdateLevelSlider(numberOfVehicles, totalNumberOfVehicles);
         if (numberOfVehicles == 0)
         {
             win();
@@ -45,14 +53,16 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("level completed");
         SceneController.LevelCompleted();
-        uILevelMenu.OpenWin();
+        //uILevelMenu.OpenWin();
+        menuManager.ShowCompletePanel();
         SoundController.PlayWinSound();
     }
     public void DecreaseLives()
     {
         lives--;
-        uiLevelInfo.LevelLives = lives.ToString();
-        if(lives == 0)
+        //uiLevelInfo.LevelLives = lives.ToString();    
+        menuManager.UpdateLives(lives, totalLives);
+        if (lives == 0)
         {
             die();
         }
@@ -61,7 +71,8 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game over");
         isPlayable = false;
-        uILevelMenu.OpenLose();
+        //uILevelMenu.OpenLose();
+        menuManager.ShowLostPanel();
         SoundController.PlayLoseSound();
     }
 
