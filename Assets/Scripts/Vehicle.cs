@@ -35,10 +35,12 @@ public class Vehicle : MonoBehaviour
 
     private int numberOfWaitingPassengers = 0;
 
-    private bool isTicketAvailable = false;
+    private bool isTicketAvailable = false; //activates ticket on the first passenger getting on a bus at the station
 
     private bool isOnFinishLevel = false;
     public bool IsOnFinishLevel { get => isOnFinishLevel; }
+
+    private Animator vehicleAnimator;
 
     //vehicle leaves the screen
     Plane[] cameraFrustum;
@@ -52,6 +54,7 @@ public class Vehicle : MonoBehaviour
         sign= GetComponentInChildren<SignObject>().Sign;
         cameraFrustum = GeometryUtility.CalculateFrustumPlanes(Camera.main);
         vehicleCollider = GetComponent<Collider>();
+        vehicleAnimator = GetComponent<Animator>();
         ticket=GameObject.FindGameObjectWithTag("Ticket").GetComponent<Ticket>();
 
     }
@@ -243,7 +246,7 @@ public class Vehicle : MonoBehaviour
                 }
                 else
                 {
-                    isMoving = false;
+                    stopMove();
                     isInReverse = false;
                     gameManager.IsPlayable = true;
                 }
@@ -275,15 +278,16 @@ public class Vehicle : MonoBehaviour
     {
         isMoving = true;
         gameManager.IsPlayable = false;
+        vehicleAnimator.SetBool("isMoving", true);
     }
-    public void MoveInReverse()
-    {
-        isInReverse = true;
-    }
-
-    private void finish()
+    private void stopMove()
     {
         isMoving = false;
+        vehicleAnimator.SetBool("isMoving", false);
+    }
+    private void finish()
+    {
+        stopMove();
         gameManager.DecreaseNumberOfVehicles();
         gameManager.IsPlayable = true;
         this.gameObject.SetActive(false);
@@ -291,7 +295,7 @@ public class Vehicle : MonoBehaviour
     }
     public void StopForPassengers(int _numberOfWaitingPassengers)
     {
-        isMoving = false;
+        stopMove();
         numberOfWaitingPassengers += _numberOfWaitingPassengers;
         isTicketAvailable = true;
     }
@@ -303,7 +307,7 @@ public class Vehicle : MonoBehaviour
             gameManager.DecreaseLives();
             if (!gameManager.IsPlayable && gameManager.Lives<=0)
             {
-                isMoving = false;
+                stopMove();
             }
             else
             {             
@@ -324,7 +328,7 @@ public class Vehicle : MonoBehaviour
 
         if (numberOfWaitingPassengers == 0)
         {
-            isMoving = true;
+            StartMove();
         }
     }
 

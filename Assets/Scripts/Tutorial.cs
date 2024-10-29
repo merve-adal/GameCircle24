@@ -10,6 +10,7 @@ public class Tutorial : MonoBehaviour
     private Animator tutorialAnimator;
     Vehicle vehicle; //to know if vehicle arrives finish line
     GameManager gameManager;
+    private float delayAtStart = 0.2f; //tutorial starts after delay
 
     private void Awake()
     {
@@ -19,7 +20,9 @@ public class Tutorial : MonoBehaviour
     }
     void Start()
     {
-        playTutorial();
+        // playTutorial();
+        vehicle = vehiclesInOrder[0].GetComponent<Vehicle>();
+        StartCoroutine(WaitAndPlayTutorial());
     }
 
     // Update is called once per frame
@@ -36,7 +39,6 @@ public class Tutorial : MonoBehaviour
         }
         else if(tutorialAnimator.GetBool("TutorialAnimationFinished"))
         {
-            Debug.Log(tutorialAnimator.GetBool("TutorialAnimationFinished"));
             AnimationFinished();
         }
     }
@@ -63,6 +65,12 @@ public class Tutorial : MonoBehaviour
         tutorialObjectsTransform.gameObject.SetActive(false);
         gameManager.IsPlayable = true;
         tutorialAnimator.SetBool("TutorialAnimationFinished", false);
+    }
+
+    private IEnumerator WaitAndPlayTutorial()
+    {
+        yield return new WaitForSeconds(delayAtStart);
+        playTutorial();
     }
 
 }
