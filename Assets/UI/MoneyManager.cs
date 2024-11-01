@@ -10,6 +10,12 @@ public class MoneyManager : MonoBehaviour
     private int totalMoney = 0; // Mevcut para miktarý
     private int addMoneyAmount = 3;
 
+    private MenuManager menuManager;
+
+    private void Awake()
+    {
+        menuManager = GameObject.FindGameObjectWithTag("UILevelMenu").GetComponent<MenuManager>();
+    }
     void Start()
     {
         UpdateUI(); // Baþlangýçta UI'yi güncelle
@@ -19,11 +25,6 @@ public class MoneyManager : MonoBehaviour
     {
         totalMoney += addMoneyAmount;
     }
-    //public void PassengerBoarded(int numberOfPassengers)
-    //{
-    //    currentMoney += 3 * numberOfPassengers; // Her yolcu için 100 ekle
-    //    UpdateUI(); // UI'yi güncelle
-    //}
 
     private void UpdateUI()
     {

@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     private int totalLives = 0;
 
     private int money = 0;
-    public int Money { get => money; } 
 
     public int Lives { get => lives;}
     [SerializeField]
@@ -74,6 +73,11 @@ public class GameManager : MonoBehaviour
         //uILevelMenu.OpenLose();
         menuManager.ShowLostPanel();
         SoundController.PlayLoseSound();
+    }
+    public void IncreaseMoney(int addMoneyAmount)
+    {
+        money += addMoneyAmount;
+        menuManager.UpdateMoney(money);
     }
 
 }

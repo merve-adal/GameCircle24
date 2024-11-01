@@ -14,7 +14,7 @@ public class Ticket : MonoBehaviour
 
     private bool isMoving = false;
 
-    private int numberOfTickets = 0;
+    //private int numberOfTickets = 0; tickets to show iteratively
     private void Awake()
     {
         movingObject = transform.GetChild(0);        

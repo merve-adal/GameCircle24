@@ -15,11 +15,14 @@ public class MenuManager : MonoBehaviour
     public Slider levelSlider; // Level slider'ý tutacak deðiþken
     public Slider livesSlider;
     public TMP_Text livesText;
+    public TMP_Text moneyText;
+    public TMP_Text completePanelText;
 
 
     private void Awake()
     {
         levelName.text = SceneController.CurrentLevelNumber().ToString();
+        moneyText.text = "0";
     }
     private void Start()
     {
@@ -60,6 +63,7 @@ public class MenuManager : MonoBehaviour
     public void ShowCompletePanel()
     {
         CompletePanel.SetActive(true);
+        completePanelText.text = moneyText.text;
     }
     public void ShowLostPanel()
     {
@@ -90,8 +94,12 @@ public class MenuManager : MonoBehaviour
     public void UpdateLives(int lives, int totalLives)
     {
         float fillAmount = (float)lives / (float)totalLives;
-        livesSlider.value = fillAmount;Debug.Log(fillAmount);
+        livesSlider.value = fillAmount;
         livesText.text = lives.ToString()+"/"+ totalLives.ToString();
+    }
+    public void UpdateMoney(int money)
+    {
+        moneyText.text = money.ToString(); // Text'i güncelle
     }
 
 }

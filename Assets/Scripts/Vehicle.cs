@@ -5,12 +5,14 @@ using UnityEngine;
 public class Vehicle : MonoBehaviour
 {
     GameManager gameManager;
-    MoneyManager moneyManager;
+    //MoneyManager moneyManager;
     Ticket ticket;
 
     private Sign sign;
 
     private Way way;
+
+    private int ticketPrice = 3;
 
     [SerializeField] private PassengerColor passengerColor;
     public PassengerColor Color { get => passengerColor; }
@@ -49,7 +51,7 @@ public class Vehicle : MonoBehaviour
     private void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("ScriptHolder").GetComponent<GameManager>();
-        moneyManager = GameObject.FindWithTag("ScriptHolder").GetComponent<MoneyManager>();
+        //moneyManager = GameObject.FindWithTag("ScriptHolder").GetComponent<MoneyManager>();
         router = GameObject.FindGameObjectWithTag("ScriptHolder").GetComponent<Router>();
         sign= GetComponentInChildren<SignObject>().Sign;
         cameraFrustum = GeometryUtility.CalculateFrustumPlanes(Camera.main);
@@ -320,6 +322,7 @@ public class Vehicle : MonoBehaviour
     public void PickUpPassenger()
     {
         numberOfWaitingPassengers--;
+        gameManager.IncreaseMoney(ticketPrice);
         if (isTicketAvailable)
         {
             ticket.Activate(transform.position);

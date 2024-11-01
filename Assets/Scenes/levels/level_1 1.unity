@@ -713,52 +713,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9072460025980576466, guid: 7d9371843638d3947b8471c1e0a8acc4, type: 3}
   m_PrefabInstance: {fileID: 331401064}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &223324908
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 223324910}
-  - component: {fileID: 223324909}
-  m_Layer: 0
-  m_Name: MoneyManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &223324909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223324908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcb6aa74f480d7a408e70fcf7f19d3b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moneyText: {fileID: 147531157507085293}
-  completePanelText: {fileID: 6775985737070173431}
---- !u!4 &223324910
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 223324908}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1759.8243, y: 2275.1768, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &238910290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5778,6 +5732,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5127426248232406881, guid: ec09c706c1814404783f307533def467, type: 3}
+      propertyPath: moneyText
+      value: 
+      objectReference: {fileID: 147531157507085293}
+    - target: {fileID: 5127426248232406881, guid: ec09c706c1814404783f307533def467, type: 3}
+      propertyPath: completePanelText
+      value: 
+      objectReference: {fileID: 6775985737070173431}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5800,5 +5762,4 @@ SceneRoots:
   - {fileID: 3198600362665798140}
   - {fileID: 1643036072}
   - {fileID: 8241333830795232176}
-  - {fileID: 223324910}
   - {fileID: 3082277672057450401}

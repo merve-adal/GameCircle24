@@ -34,6 +34,7 @@ public class SceneController : MonoBehaviour
     {
         string levelName = SceneManager.GetActiveScene().name;
         int levelNumber = int.Parse(levelName.Substring(6)); //level_115
+        //int levelNumber = 12; //sample for debugging
         return levelNumber;
     }
 }
