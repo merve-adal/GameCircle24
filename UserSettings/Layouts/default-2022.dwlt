@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 179
+  controlID: 57
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 180
+  controlID: 58
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 181
+  controlID: 59
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 182
+  controlID: 60
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -251,7 +251,7 @@ MonoBehaviour:
   - {fileID: 16}
   - {fileID: 13}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -355,7 +355,7 @@ MonoBehaviour:
   m_UseMipMap: 0
   m_SimulatorState:
     controlPanelVisible: 0
-    controlPanelWidth: 0
+    controlPanelWidth: NaN
     controlPanelFoldoutKeys:
     - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
     controlPanelFoldoutValues: 00
@@ -363,10 +363,10 @@ MonoBehaviour:
     - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
     pluginStates:
     - '{}'
-    scale: 21
+    scale: 10
     fitToScreenEnabled: 1
     rotationDegree: 0
-    highlightSafeAreaEnabled: 0
+    highlightSafeAreaEnabled: 1
     friendlyName: Apple iPhone 13 Pro Max
     screenIndex: 0
     networkReachability: 1
@@ -408,20 +408,20 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 867e0200
-      m_LastClickedID: 163462
-      m_ExpandedIDs: e467f5ffee67f5ffcc7bf5ff26acf5ff48daf5ffd206f6ff5c34f6ff2060f6ff6a94f6ff6ac5f6ff34f6f6ff402af7ff0c5cf7ff4c87f7fffab7f7ff04e1f7ff080ff8ff2e31f8ff3231f8ffea32f8ffee32f8ff5e33f8ff6633f8ff8233f8ff8633f8ff7037f8ff7c37f8ff8037f8ffc037f8ff9e38f8ffa838f8ffb238f8ff7041f8ffaa63f8ffae63f8ff6465f8ff6865f8ffd865f8ffe065f8fffc65f8ff0066f8ffea69f8fff669f8fffa69f8ff3a6af8ff146bf8ff1e6bf8ff286bf8ff1074f8ffbc89f8ffc089f8ff768bf8ff7a8bf8ffea8bf8fff28bf8ff0e8cf8ff128cf8fffc8ff8ff0890f8ff0c90f8ff4c90f8ffe490f8ff2691f8ff3091f8ff3a91f8ff2aa4f8ffd6c8f8ffdac8f8ff90caf8ff94caf8ff04cbf8ff0ccbf8ff28cbf8ff2ccbf8ff16cff8ff22cff8ff26cff8ff66cff8ff40d0f8ff4ad0f8ff54d0f8ffded2f8fffae5f8fffee5f8ffb4e7f8ffb8e7f8ff28e8f8ff30e8f8ff4ce8f8ff50e8f8ff3aecf8ff46ecf8ff4aecf8ff8aecf8ff64edf8ff6eedf8ff78edf8ff5802f9ff3429f9ff3829f9ff6029f9ffee2af9fff22af9ff622bf9ff6a2bf9ff862bf9ff8a2bf9ff742ff9ff802ff9ff842ff9ffc42ff9ff9e30f9ffa830f9ffb230f9ff9031f9ff285ff9ff2c5ff9ffe260f9ffe660f9ff5661f9ff5e61f9ff7a61f9ff7e61f9ff5865f9ff6865f9ff7465f9ff7865f9ffb865f9ff9266f9ff9c66f9ffa666f9ff1468f9ff866bf9ff8a6bf9ff406df9ff446df9ffb46df9ffbc6df9ffd86df9ffdc6df9ffc671f9ffd271f9ffd671f9ff1672f9fff072f9fffa72f9ff0473f9ffde9af9ffa8cbf9ff20e9f9ff2ae9f9fff8fcf9ffb41afaffb81afaff6e1cfaff721cfaffe21cfaffea1cfaff061dfaff0a1dfafff420faff0021faff0421faff4421faff1e22faff2822faff3222faff762ffaff0c54faff1054faffc655faffca55faff3a56faff4256faff5e56faff6256faff4c5afaff585afaff5c5afaff9c5afaff765bfaff805bfaff8a5bfaff9865faff8267faff8667faffec6efafff66efaff006ffaff3498faff14a5faff1ea5faff28a5faff1ec4faffccf4faff0c20fbff3622fbff3a22fbfff023fbfff423fbff6424fbff6c24fbff8824fbff8c24fbff7628fbff8228fbff8628fbffc628fbffaa29fbffb429fbff2253fbff226dfbff266dfbffdc6efbffe06efbff506ffbff586ffbff746ffbff786ffbff6273fbff6e73fbff7273fbffb273fbff9674fbffa074fbffe07ffbff5082fbff5482fbff0a84fbff0e84fbff7e84fbff8684fbffa284fbffa684fbff9088fbff9c88fbffa088fbffe088fbffc489fbffce89fbff76b1fbffbadcfbffc6e4fbffcae4fbff3aecfbff44ecfbffe80afcffb00cfcffb40cfcff2414fcff2e14fcff1e34fcff863ffcff8a3ffcffb23ffcff4041fcff4441fcffb441fcffbc41fcffd841fcffdc41fcffc645fcffd245fcffd645fcff1646fcfffa46fcff0447fcffba67fcff0c88fcff7488fcff7888fcff2e8afcff328afcffa28afcffaa8afcffc68afcffca8afcffb48efcffc08efcffc48efcffea8efcfffc8efcff048ffcffde8ffcffe88ffcff0693fcff0ac1fcff86cefcff90cefcff9acefcff86effcffec0dfdfff60dfdff000efdff0819fdff8623fdff9023fdff9a23fdff8a47fdff4e67fdff5867fdff6267fdff6a72fdffe485fdffee85fdffdaa0fdff56bbfdff60bbfdff32cafdffc8d7fdffd0d7fdffecd7fdfff0d7fdff2adcfdff0eddfdff18ddfdffd0f8fdff6a03feffb603feffc003feff1e22feff1850feff2a58feff2e58feff1659feff2059feff3a82feff34b0fefffcb7feff00b8feffe8b8fefff2b8fefff0e6feff1e08ffff2208ffffd809ffffdc09ffff4c0affff540affff700affff740affff5e0effff6a0effff6e0effffae0effff920fffff1633ffff605dffff5a3501005c3501005e350100603501006635010090350100beab010026af010028af0100feb0010072b601003ab80100b0bd0100d8bd01004ec101000cc301000ec3010010c3010012c3010016c3010018c301000cca010010ca010012ca010016ca010018ca01005ed00100d2d5010050db010052db010054db010056db01005adb01005cdb010066dc010068dc01006adc01006cdc010070dc010072dc0100a6e30100a8e30100aae30100ace30100b0e30100b2e3010064ec01009af30100a4f3010026f8010028f801002af801002cf8010030f8010032f801007cfe01007efe010080fe010082fe010086fe010088fe0100d6020200da020200460d0200480d02004a0d02004c0d0200500d0200520d0200a8140200aa140200ac140200ae140200b2140200b4140200601d0200621d0200641d0200661d0200681d02006a1d02004425020046250200482502004a2502004e25020050250200042f0200062f0200082f02000a2f02000e2f0200102f02008e370200903702009237020094370200983702009a370200463e0200483e02004a3e02004c3e0200503e0200523e0200de460200e0460200e2460200e4460200e6460200e8460200
+      m_SelectedIDs: 7eddffff
+      m_LastClickedID: -8834
+      m_ExpandedIDs: 54c8ffffe6ddffffeaddffffeeddffffa2dfffffa6dfffffaadfffff18e0ffff20e0ffff3ce0ffff40e0ffff44e0ffff2ce4ffff38e4ffff3ce4ffff40e4ffff7ee4ffff82e4ffff60e5ffff68e5ffff74e5ffff32e9ffffe6faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Button_Restart
-        m_OriginalName: Button_Restart
+        m_Name: Panel
+        m_OriginalName: Panel
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -371804
+        m_UserData: -6808
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -777,9 +777,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 644.2592, y: 1387.92, z: 0}
+    m_Target: {x: 171.5, y: 304.5, z: 0}
     speed: 2
-    m_Value: {x: 644.2592, y: 1387.9202, z: 0}
+    m_Value: {x: 171.50003, y: 304.50006, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -829,9 +829,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1431.5892
+    m_Target: 349.4746
     speed: 2
-    m_Value: 1369.9419
+    m_Value: 349.47467
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -876,10 +876,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 510
+    x: 511
     y: 73
     width: 954
-    height: 519
+    height: 630
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -896,7 +896,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 954, y: 498}
+  m_TargetSize: {x: 343, y: 609}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -905,16 +905,16 @@ MonoBehaviour:
   m_VSyncEnabled: 0
   m_Gizmos: 0
   m_Stats: 0
-  m_SelectedSizes: 00000000000000000000000011000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 0000000000000000000000000d000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -477
-    m_HBaseRangeMax: 477
-    m_VBaseRangeMin: -249
-    m_VBaseRangeMax: 249
+    m_HBaseRangeMin: -171.5
+    m_HBaseRangeMax: 171.5
+    m_VBaseRangeMin: -304.5
+    m_VBaseRangeMax: 304.5
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -933,9 +933,9 @@ MonoBehaviour:
       x: 0
       y: 21
       width: 954
-      height: 498
+      height: 609
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 477, y: 249}
+    m_Translation: {x: 477, y: 304.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -943,15 +943,15 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -477
-      y: -249
+      y: -304.5
       width: 954
-      height: 498
+      height: 609
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 954, y: 519}
+  m_LastWindowPixelSize: {x: 954, y: 630}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
-  m_LowResolutionForAspectRatios: 01000000000000000000
+  m_LowResolutionForAspectRatios: 01000001000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
 --- !u!114 &17
@@ -999,7 +999,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes/levels
+    - Assets/UI
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1007,16 +1007,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes/levels
+  - Assets/UI
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "C:\\Users\\ms\u0131\\Downloads\\GameCircle2024-main\\GameCircle2024"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 185}
-    m_SelectedIDs: e8340100
-    m_LastClickedID: 79080
-    m_ExpandedIDs: 00000000427800005a78000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 313}
+    m_SelectedIDs: fe740000
+    m_LastClickedID: 29950
+    m_ExpandedIDs: 00000000b0740000b274000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1044,7 +1044,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004278000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000b0740000b2740000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
