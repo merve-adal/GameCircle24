@@ -5,24 +5,25 @@ using UnityEngine.UI; // Slider kullanýmý için gerekli
 
 public class MenuManager : MonoBehaviour
 {
-    public GameObject homePanel;
-    public GameObject settingsPanel;
-    public GameObject pausePanel;
-    public GameObject AnaPanel;
-    public GameObject CompletePanel;
-    public GameObject LostPanel;
-    public TMP_Text levelName;
-    public Slider levelSlider; // Level slider'ý tutacak deðiþken
-    public Slider livesSlider;
-    public TMP_Text livesText;
-    public TMP_Text moneyText;
-    public TMP_Text completePanelText;
+    [SerializeField] private GameObject homePanel;
+    [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject AnaPanel;
+    [SerializeField] private GameObject CompletePanel;
+    [SerializeField] private GameObject LostPanel;
+    [SerializeField] private TMP_Text levelName;
+    [SerializeField] private Slider levelSlider; // Level slider'ý tutacak deðiþken
+    [SerializeField] private Slider livesSlider;
+    [SerializeField] private TMP_Text livesText;
+    [SerializeField] private TMP_Text moneyText;
+    [SerializeField] private TMP_Text completePanelText;
+    [SerializeField] private TMP_Text levelUpText;
 
 
     private void Awake()
     {
         levelName.text = SceneController.CurrentLevelNumber().ToString();
-        moneyText.text = "0";
+        moneyText.text = "$0";
     }
     private void Start()
     {
@@ -47,23 +48,27 @@ public class MenuManager : MonoBehaviour
         HideAllPanels();
         AnaPanel.SetActive(false);
         homePanel.SetActive(true);
+        SoundController.PlayClickSound();
     }
 
     public void ShowSettingsPanel()
     {
         HideAllPanels();
         settingsPanel.SetActive(true);
+        SoundController.PlayClickSound();
     }
 
     public void ShowPausePanel()
     {
         HideAllPanels();
         pausePanel.SetActive(true);
+        SoundController.PlayClickSound();
     }
     public void ShowCompletePanel()
     {
         CompletePanel.SetActive(true);
-        completePanelText.text = moneyText.text;
+        completePanelText.text = "$"+moneyText.text;
+        levelUpText.text=SceneController.CurrentLevelNumber().ToString();
     }
     public void ShowLostPanel()
     {
@@ -75,6 +80,7 @@ public class MenuManager : MonoBehaviour
         AnaPanel.SetActive(false);
         CompletePanel.SetActive(false);
         AnaPanel.SetActive(true);
+        SoundController.PlayClickSound();
     }
 
     public void StartNextScene()
@@ -99,7 +105,7 @@ public class MenuManager : MonoBehaviour
     }
     public void UpdateMoney(int money)
     {
-        moneyText.text = money.ToString(); // Text'i güncelle
+        moneyText.text = "$"+money.ToString(); // Text'i güncelle
     }
 
 }

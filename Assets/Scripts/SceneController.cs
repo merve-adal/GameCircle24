@@ -11,17 +11,16 @@ public class SceneController : MonoBehaviour
     }
     public static void LoadNextLevel()
     {
-        SceneManager.LoadScene("level_"+(SaveLoadGameInfo.LoadLastLevel()+1));
+        SceneManager.LoadScene("level_"+(SaveLoadGameInfo.LoadLastLevel()));
     }
     public static void RestartCurrentLevel()
     {
-        int currentScene = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene("level_"+currentScene);
+        SceneManager.LoadScene(CurrentLevelName());
     }
     public static void LevelCompleted()
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
-        if (currentScene == SceneManager.sceneCountInBuildSettings - 1)
+        if (currentScene == SceneManager.sceneCountInBuildSettings-1)
         {
             SaveLoadGameInfo.SaveLastLevel(4); //skip tutorial, first 3 scenes are tutorials
         }
@@ -32,9 +31,13 @@ public class SceneController : MonoBehaviour
     }
     public static int CurrentLevelNumber() //numbers in the name 
     {
-        string levelName = SceneManager.GetActiveScene().name;
-      //  int levelNumber = int.Parse(levelName.Substring(6)); //level_115
-        int levelNumber = 12; //sample for debugging//
+        string levelName = SceneManager.GetActiveScene().name; 
+        int levelNumber = int.Parse(levelName.Substring(6)); //level_115
+        //int levelNumber = 12; //sample for debugging//
         return levelNumber;
+    }
+    public static string CurrentLevelName() //numbers in the name 
+    {
+        return SceneManager.GetActiveScene().name;
     }
 }

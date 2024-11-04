@@ -7,7 +7,7 @@ public class Ticket : MonoBehaviour
 
     private Transform movingObject;
     private Vector3 firstLocalPosition = Vector3.zero;
-    private Vector3 lastLocalPosition = new Vector3(0, 2.5f, 0f);
+    private Vector3 lastLocalPosition = new Vector3(0, 5f, 0f);
         
     private float elapsedTime=0;
     private float totalTime = 0.4f;
@@ -51,5 +51,6 @@ public class Ticket : MonoBehaviour
         elapsedTime = 0;
         movingObject.gameObject.SetActive(true);
         isMoving = true;
+        SoundController.PlayMoneySound();
     }
 }
