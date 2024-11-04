@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class Tutorial : MonoBehaviour
@@ -40,11 +39,6 @@ public class Tutorial : MonoBehaviour
             {
                 this.gameObject.SetActive(false);
             }
-            //vehiclesInOrder.RemoveAt(0);
-            //if(vehiclesInOrder.Count >= 0)
-            //{
-            //    playTutorial();
-            //}
         }
         else if(tutorialAnimator.GetBool("TutorialAnimationFinished"))
         {

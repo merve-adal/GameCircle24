@@ -67,7 +67,7 @@ public class MenuManager : MonoBehaviour
     public void ShowCompletePanel()
     {
         CompletePanel.SetActive(true);
-        completePanelText.text = "$"+moneyText.text;
+        completePanelText.text = moneyText.text;
         levelUpText.text=SceneController.CurrentLevelNumber().ToString();
     }
     public void ShowLostPanel()
