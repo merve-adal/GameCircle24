@@ -1,12 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using Facebook.Unity;
+using GameAnalyticsSDK;
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    void Awake()
+    private void Start()
     {
-        SceneController.LoadNextLevel();
+        FB.Init();
+        GameAnalytics.Initialize();      
+    }
+    private void Update()
+    {
+        if (FB.IsInitialized)
+        {
+            SceneController.LoadNextLevel();
+        }
     }
 
 }
